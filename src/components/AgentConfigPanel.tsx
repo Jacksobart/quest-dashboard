@@ -30,7 +30,7 @@ import type { AgentConfig } from '../lib/mock-data';
 // ---------------------------------------------------------------------------
 
 const AGENT_COLOR_MAP: Record<string, { tw: string; glow: string; bg: string; border: string }> = {
-  '#00aaff': { tw: 'blue', glow: 'box-glow-blue', bg: 'rgba(0,170,255,0.06)', border: 'rgba(0,170,255,0.2)' },
+  '#ff5252': { tw: 'cyan', glow: 'box-glow-cyan', bg: 'rgba(255,82,82,0.06)', border: 'rgba(255,82,82,0.2)' },
   '#8b5cf6': { tw: 'purple', glow: 'box-glow-purple', bg: 'rgba(139,92,246,0.06)', border: 'rgba(139,92,246,0.2)' },
   '#fbbf24': { tw: 'amber', glow: 'box-glow-amber', bg: 'rgba(251,191,36,0.06)', border: 'rgba(251,191,36,0.2)' },
   '#34d399': { tw: 'emerald', glow: 'box-glow-emerald', bg: 'rgba(52,211,153,0.06)', border: 'rgba(52,211,153,0.2)' },
@@ -219,7 +219,7 @@ function MissionStatusBar({ agent }: { agent: AgentConfig }) {
 // ---------------------------------------------------------------------------
 
 function AgentCard({ agent, index }: { agent: AgentConfig; index: number }) {
-  const colorCfg = AGENT_COLOR_MAP[agent.color] || AGENT_COLOR_MAP['#00aaff'];
+  const colorCfg = AGENT_COLOR_MAP[agent.color] || AGENT_COLOR_MAP['#ff5252'];
   const lucideIcon = AGENT_LUCIDE_ICONS[agent.name];
 
   return (
@@ -827,7 +827,7 @@ export default function AgentConfigPanel() {
         <div
           className="card px-6 py-5 border-l-[3px] border-l-blue"
           style={{
-            background: 'linear-gradient(135deg, rgba(0,170,255,0.04), var(--color-surface), rgba(139,92,246,0.03))',
+            background: 'linear-gradient(135deg, rgba(255,82,82,0.04), var(--color-surface), rgba(139,92,246,0.03))',
           }}
         >
           <div className="flex items-start gap-4">

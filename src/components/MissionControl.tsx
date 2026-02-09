@@ -24,7 +24,7 @@ import type { Mission } from '../lib/mock-data';
 // ---------------------------------------------------------------------------
 
 const AGENT_COLORS: Record<string, string> = {
-  backend: '#00aaff',
+  backend: '#ff5252',
   frontend: '#8b5cf6',
   database: '#fbbf24',
   testing: '#34d399',
@@ -49,8 +49,8 @@ const STATUS_CONFIG: Record<
   },
   running: {
     label: 'RUNNING',
-    color: 'var(--color-blue)',
-    bg: 'rgba(0,170,255,0.1)',
+    color: 'var(--color-cyan)',
+    bg: 'rgba(255,82,82,0.1)',
     icon: <Play size={12} />,
   },
   pending: {
@@ -182,7 +182,7 @@ function MissionCard({ mission, index }: { mission: Mission; index: number }) {
 
   // Card-level styling based on status
   const cardBorderStyle = isRunning
-    ? { borderColor: 'rgba(0,170,255,0.25)' }
+    ? { borderColor: 'rgba(255,82,82,0.25)' }
     : isCompleted
       ? { borderColor: 'rgba(52,211,153,0.15)' }
       : {};
@@ -190,7 +190,7 @@ function MissionCard({ mission, index }: { mission: Mission; index: number }) {
   const cardBgOverlay = isCompleted
     ? 'rgba(52,211,153,0.02)'
     : isRunning
-      ? 'rgba(0,170,255,0.01)'
+      ? 'rgba(255,82,82,0.01)'
       : undefined;
 
   return (
@@ -212,7 +212,7 @@ function MissionCard({ mission, index }: { mission: Mission; index: number }) {
           className="absolute -inset-px rounded-xl pointer-events-none"
           style={{
             background:
-              'linear-gradient(135deg, rgba(0,170,255,0.2), rgba(139,92,246,0.1), rgba(0,170,255,0.2))',
+              'linear-gradient(135deg, rgba(255,82,82,0.2), rgba(139,92,246,0.1), rgba(255,82,82,0.2))',
             backgroundSize: '200% 200%',
           }}
           animate={{
@@ -396,7 +396,7 @@ function MissionCard({ mission, index }: { mission: Mission; index: number }) {
                     background: passed
                       ? 'rgba(52,211,153,0.15)'
                       : inProgress
-                        ? 'rgba(0,170,255,0.1)'
+                        ? 'rgba(255,82,82,0.1)'
                         : 'rgba(85,85,119,0.1)',
                     color: passed
                       ? 'var(--color-emerald)'
@@ -407,7 +407,7 @@ function MissionCard({ mission, index }: { mission: Mission; index: number }) {
                       passed
                         ? 'rgba(52,211,153,0.3)'
                         : inProgress
-                          ? 'rgba(0,170,255,0.2)'
+                          ? 'rgba(255,82,82,0.2)'
                           : 'rgba(85,85,119,0.2)'
                     }`,
                   }}
@@ -462,8 +462,8 @@ export default function MissionControl() {
           <div
             className="w-8 h-8 rounded-lg flex items-center justify-center"
             style={{
-              background: 'rgba(0,170,255,0.1)',
-              border: '1px solid rgba(0,170,255,0.2)',
+              background: 'rgba(255,82,82,0.1)',
+              border: '1px solid rgba(255,82,82,0.2)',
             }}
           >
             <Zap size={16} style={{ color: 'var(--color-blue)' }} />
@@ -583,15 +583,15 @@ export default function MissionControl() {
               onClick={() => setFilter(f.key)}
               className="relative font-mono text-[11px] uppercase tracking-[0.08em] px-3 py-1.5 rounded-md flex items-center gap-1.5 transition-colors duration-200 flex-shrink-0"
               style={{
-                color: isActive ? 'var(--color-blue)' : 'var(--color-text-dim)',
-                background: isActive ? 'rgba(0,170,255,0.08)' : 'transparent',
+                color: isActive ? 'var(--color-cyan)' : 'var(--color-text-dim)',
+                background: isActive ? 'rgba(255,82,82,0.08)' : 'transparent',
                 border: isActive
-                  ? '1px solid rgba(0,170,255,0.2)'
+                  ? '1px solid rgba(255,82,82,0.2)'
                   : '1px solid transparent',
               }}
               whileHover={{
                 backgroundColor: isActive
-                  ? 'rgba(0,170,255,0.12)'
+                  ? 'rgba(255,82,82,0.12)'
                   : 'rgba(255,255,255,0.03)',
               }}
               whileTap={{ scale: 0.97 }}

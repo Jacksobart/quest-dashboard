@@ -137,7 +137,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
           <motion.div
             className="absolute left-0 right-0 h-[2px] pointer-events-none"
             style={{
-              background: 'linear-gradient(90deg, transparent 0%, rgba(0,170,255,0.15) 50%, transparent 100%)',
+              background: 'linear-gradient(90deg, transparent 0%, rgba(255,82,82,0.15) 50%, transparent 100%)',
               zIndex: 11,
             }}
             animate={{ top: ['-5%', '105%'] }}
@@ -164,7 +164,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4 }}
                   style={{
-                    textShadow: '0 0 20px rgba(0,170,255,0.6), 0 0 40px rgba(0,170,255,0.3)',
+                    textShadow: '0 0 20px rgba(255,82,82,0.6), 0 0 40px rgba(255,82,82,0.3)',
                   }}
                 >
                   {ASCII_LOGO}
