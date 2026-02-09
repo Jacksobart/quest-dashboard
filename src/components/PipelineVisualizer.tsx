@@ -515,7 +515,7 @@ export default function PipelineVisualizer() {
             className="absolute inset-y-0 w-20"
             style={{
               background:
-                'linear-gradient(90deg, transparent, rgba(255,0,128,0.4), transparent)',
+                'linear-gradient(90deg, transparent, rgba(99,102,241,0.4), transparent)',
             }}
             initial={{ left: '0%' }}
             animate={isInView ? { left: ['0%', '65%'] } : {}}

@@ -14,9 +14,9 @@
   --color-border: #252550;
   --color-border-glow: #353570;
 
-  --color-cyan: #ff0080;
-  --color-cyan-dim: #cc0066;
-  --color-cyan-glow: #ff008040;
+  --color-cyan: #6366f1;
+  --color-cyan-dim: #4f46e5;
+  --color-cyan-glow: #6366f140;
   --color-purple: #8b5cf6;
   --color-purple-dim: #6d40d4;
   --color-purple-glow: #8b5cf640;
@@ -87,7 +87,7 @@ body {
 .glow-amber { text-shadow: 0 0 20px var(--color-amber-glow), 0 0 40px var(--color-amber-glow); }
 .glow-emerald { text-shadow: 0 0 20px var(--color-emerald-glow), 0 0 40px var(--color-emerald-glow); }
 
-.box-glow-cyan { box-shadow: 0 0 20px var(--color-cyan-glow), inset 0 0 20px rgba(255, 0, 128, 0.05); }
+.box-glow-cyan { box-shadow: 0 0 20px var(--color-cyan-glow), inset 0 0 20px rgba(99, 102, 241, 0.05); }
 .box-glow-purple { box-shadow: 0 0 20px var(--color-purple-glow), inset 0 0 20px rgba(139, 92, 246, 0.05); }
 .box-glow-amber { box-shadow: 0 0 20px var(--color-amber-glow), inset 0 0 20px rgba(251, 191, 36, 0.05); }
 .box-glow-emerald { box-shadow: 0 0 20px var(--color-emerald-glow), inset 0 0 20px rgba(52, 211, 153, 0.05); }
@@ -153,7 +153,7 @@ body {
 .quest-cursor-ring {
   width: 36px;
   height: 36px;
-  border: 1.5px solid rgba(255, 0, 128, 0.4);
+  border: 1.5px solid rgba(99, 102, 241, 0.4);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;

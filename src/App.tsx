@@ -310,7 +310,7 @@ function App() {
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 + i * 0.08, duration: 0.3 }}
                       whileHover={{
-                        borderColor: 'rgba(0, 229, 255, 0.3)',
+                        borderColor: 'rgba(99, 102, 241, 0.3)',
                         color: 'var(--color-cyan)',
                       }}
                     >
