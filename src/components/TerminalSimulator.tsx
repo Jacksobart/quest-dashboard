@@ -510,7 +510,7 @@ export default function TerminalSimulator() {
           className="rounded-xl overflow-hidden border border-border/80 relative"
           style={{
             boxShadow:
-              '0 0 40px rgba(255, 0, 128, 0.06), 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.03) inset',
+              '0 0 40px rgba(255, 82, 82, 0.06), 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.03) inset',
           }}
         >
           {/* macOS title bar */}
@@ -584,7 +584,7 @@ export default function TerminalSimulator() {
               className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-10"
               style={{
                 background:
-                  'linear-gradient(180deg, rgba(255, 0, 128, 0.015) 0%, transparent 100%)',
+                  'linear-gradient(180deg, rgba(255, 82, 82, 0.015) 0%, transparent 100%)',
               }}
             />
 
@@ -661,7 +661,7 @@ export default function TerminalSimulator() {
           className="h-16 mx-8 -mt-1 rounded-b-2xl opacity-40 blur-xl pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at center top, rgba(255, 0, 128, 0.12), transparent 70%)',
+              'radial-gradient(ellipse at center top, rgba(255, 82, 82, 0.12), transparent 70%)',
           }}
         />
       </motion.div>

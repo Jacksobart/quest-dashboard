@@ -131,7 +131,7 @@ export default function CommandPalette() {
               style={{
                 background: 'var(--color-abyss)',
                 boxShadow:
-                  '0 0 60px rgba(255,0,128,0.1), 0 25px 80px rgba(0,0,0,0.6)',
+                  '0 0 60px rgba(255,82,82,0.1), 0 25px 80px rgba(0,0,0,0.6)',
               }}
             >
               {/* Search input */}
