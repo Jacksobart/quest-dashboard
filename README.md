@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+# Quest Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A visualization dashboard for the Quest system — an AI-powered planning engine that turns project specs into verified, machine-executable, parallelized mission plans.
 
-Currently, two official plugins are available:
+## What is Quest?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Quest is a planning engine, not an execution engine. Given a spec and a codebase, it produces conflict-free, dependency-ordered, machine-verifiable mission plans that converge reliably. It operates through a 5-phase pipeline:
 
-## React Compiler
+1. **Init** — Validate the spec and index the codebase
+2. **Analyze** — Specialist agents produce structured findings per requirement
+3. **Plan** — Generate structured YAML missions with file ownership, DAG ordering, and acceptance criteria
+4. **Execute** — Run missions via Ralph loops (independent processes with retry logic)
+5. **Verify & Ship** — Agent review, full test suite, drift detection, and PR generation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## What the Dashboard Shows
 
-## Expanding the ESLint configuration
+This dashboard visualizes the Quest pipeline and its core concepts through interactive components:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Pipeline Visualizer** — The 5-phase flow with validation gates between each phase
+- **Mission Control** — Mission status tracking, progress, and lifecycle management
+- **DAG Visualizer** — Dependency graph of missions showing execution order and parallelism
+- **Requirement Matrix** — Per-requirement coverage status with evidence and confidence
+- **Gap Analysis** — Gaps between spec requirements and current implementation
+- **Drift Detection** — Monitors for file changes that conflict across missions
+- **Verification Gates** — Hard validation checkpoints between phases
+- **Mission YAML** — Structured mission format with file ownership and acceptance criteria
+- **Agent Config Panel** — Specialist agent configuration and roles
+- **Terminal Simulator** — Live output simulation of quest CLI commands
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- React 19 + TypeScript
+- Vite 7
+- Tailwind CSS 4
+- Framer Motion 12
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting Started
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The dev server runs at `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
 ```
