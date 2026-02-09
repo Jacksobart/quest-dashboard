@@ -135,7 +135,7 @@ function ParticleField() {
         radius: Math.random() * 1.5 + 0.5,
         opacity: baseOpacity,
         baseOpacity,
-        hue: Math.random() > 0.7 ? 270 : 185, // Mix of cyan and purple
+        hue: Math.random() > 0.7 ? 270 : 330, // Mix of rose and purple
       };
     });
 
@@ -175,7 +175,7 @@ function ParticleField() {
         ctx!.beginPath();
         ctx!.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         const hue = p.hue;
-        const sat = hue === 185 ? 100 : 70;
+        const sat = hue === 330 ? 100 : 70;
         ctx!.fillStyle = `hsla(${hue}, ${sat}%, 60%, ${p.opacity})`;
         ctx!.fill();
       }
@@ -200,7 +200,7 @@ function ParticleField() {
             if (mouseInfluence > 0.3) {
               ctx!.strokeStyle = `rgba(139, 92, 246, ${alpha})`;
             } else {
-              ctx!.strokeStyle = `rgba(0, 229, 255, ${alpha})`;
+              ctx!.strokeStyle = `rgba(255, 0, 128, ${alpha})`;
             }
             ctx!.lineWidth = 0.5 + mouseInfluence * 1;
             ctx!.stroke();

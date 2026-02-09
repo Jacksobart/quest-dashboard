@@ -325,7 +325,7 @@ export const requirements: Requirement[] = [
 
 // ---- AGENT CONFIGS ----
 export const agents: AgentConfig[] = [
-  { name: 'backend', description: 'Backend API and services', files_own: ['src/api/**', 'src/services/**'], files_read: ['src/shared/**'], color: '#00e5ff', icon: '⚡', missionsAssigned: 5, missionsCompleted: 1 },
+  { name: 'backend', description: 'Backend API and services', files_own: ['src/api/**', 'src/services/**'], files_read: ['src/shared/**'], color: '#ff0080', icon: '⚡', missionsAssigned: 5, missionsCompleted: 1 },
   { name: 'frontend', description: 'React UI components and pages', files_own: ['src/app/**', 'src/components/**'], files_read: ['src/shared/**'], color: '#8b5cf6', icon: '🎨', missionsAssigned: 3, missionsCompleted: 1 },
   { name: 'database', description: 'Schema, migrations, queries', files_own: ['migrations/**', 'src/db/**'], files_read: ['src/shared/**'], color: '#fbbf24', icon: '🗄️', missionsAssigned: 2, missionsCompleted: 1 },
   { name: 'testing', description: 'Test files only', files_own: ['**/*.test.*', '**/tests/**'], files_read: ['src/**'], color: '#34d399', icon: '🧪', missionsAssigned: 2, missionsCompleted: 0 },

@@ -7,7 +7,7 @@ import { missions } from '../lib/mock-data';
 // ============================================================
 
 const AGENT_COLORS: Record<string, string> = {
-  backend: '#00e5ff',
+  backend: '#ff0080',
   frontend: '#8b5cf6',
   database: '#fbbf24',
   testing: '#34d399',
@@ -138,14 +138,14 @@ function DagEdge({
     status === 'completed'
       ? '#34d399'
       : status === 'active'
-        ? '#00e5ff'
+        ? '#ff0080'
         : '#555577';
 
   const glowColor =
     status === 'completed'
       ? '#34d39960'
       : status === 'active'
-        ? '#00e5ff60'
+        ? '#ff008060'
         : 'transparent';
 
   const opacity = dimmed ? 0.12 : highlighted ? 1 : 0.7;
@@ -287,7 +287,7 @@ function DagNode({
   const borderColor = isCompleted
     ? '#34d399'
     : isRunning
-      ? '#00e5ff'
+      ? '#ff0080'
       : isFailed
         ? '#f43f5e'
         : '#252550';
@@ -323,7 +323,7 @@ function DagNode({
           height={NODE_H + 8}
           rx={14}
           fill="none"
-          stroke={isRunning ? '#00e5ff' : borderColor}
+          stroke={isRunning ? '#ff0080' : borderColor}
           strokeWidth={1}
           opacity={0.3}
           style={{ filter: `blur(6px)` }}
@@ -361,7 +361,7 @@ function DagNode({
           height={NODE_H}
           rx={10}
           fill="none"
-          stroke="#00e5ff"
+          stroke="#ff0080"
           strokeWidth={2}
         >
           <animate
@@ -382,7 +382,7 @@ function DagNode({
           isCompleted
             ? '#34d399'
             : isRunning
-              ? '#00e5ff'
+              ? '#ff0080'
               : isFailed
                 ? '#f43f5e'
                 : '#555577'
@@ -418,7 +418,7 @@ function DagNode({
           isCompleted
             ? '#34d399'
             : isRunning
-              ? '#00e5ff'
+              ? '#ff0080'
               : isFailed
                 ? '#f43f5e'
                 : '#555577'
@@ -496,7 +496,7 @@ function DagNode({
             width={(NODE_W - 20) * (mission.progress / 100)}
             height={5}
             rx={2.5}
-            fill="#00e5ff"
+            fill="#ff0080"
           >
             <animate
               attributeName="opacity"
@@ -509,7 +509,7 @@ function DagNode({
           <text
             x={x + NODE_W - 12}
             y={y + NODE_H - 18}
-            fill="#00e5ff"
+            fill="#ff0080"
             fontSize="9"
             fontFamily="'JetBrains Mono', monospace"
             fontWeight="500"
@@ -729,7 +729,7 @@ export default function DagVisualizer() {
               {/* Glow filters */}
               <filter id="dag-glow-cyan" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur stdDeviation="4" result="blur" />
-                <feFlood floodColor="#00e5ff" floodOpacity="0.3" result="color" />
+                <feFlood floodColor="#ff0080" floodOpacity="0.3" result="color" />
                 <feComposite in="color" in2="blur" operator="in" result="glow" />
                 <feMerge>
                   <feMergeNode in="glow" />
@@ -758,9 +758,9 @@ export default function DagVisualizer() {
 
               {/* Radial gradient for batch columns */}
               <linearGradient id="batch-col-active" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#00e5ff" stopOpacity="0.04" />
-                <stop offset="50%" stopColor="#00e5ff" stopOpacity="0.02" />
-                <stop offset="100%" stopColor="#00e5ff" stopOpacity="0.04" />
+                <stop offset="0%" stopColor="#ff0080" stopOpacity="0.04" />
+                <stop offset="50%" stopColor="#ff0080" stopOpacity="0.02" />
+                <stop offset="100%" stopColor="#ff0080" stopOpacity="0.04" />
               </linearGradient>
               <linearGradient id="batch-col-done" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#34d399" stopOpacity="0.03" />
@@ -806,7 +806,7 @@ export default function DagVisualizer() {
                       allCompleted
                         ? '#34d39915'
                         : anyRunning
-                          ? '#00e5ff15'
+                          ? '#ff008015'
                           : '#55557710'
                     }
                     strokeWidth={1}
@@ -828,7 +828,7 @@ export default function DagVisualizer() {
               const labelColor = allCompleted
                 ? '#34d399'
                 : anyRunning
-                  ? '#00e5ff'
+                  ? '#ff0080'
                   : '#555577';
 
               return (

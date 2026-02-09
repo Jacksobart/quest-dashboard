@@ -31,7 +31,10 @@ function App() {
   const [booted, setBooted] = useState(false);
   const mainRef = useRef<HTMLDivElement>(null);
 
-  const handleBootComplete = useCallback(() => setBooted(true), []);
+  const handleBootComplete = useCallback(() => {
+    window.scrollTo(0, 0);
+    setBooted(true);
+  }, []);
 
   useEffect(() => {
     if (!booted) return;

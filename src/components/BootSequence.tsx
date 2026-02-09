@@ -6,33 +6,32 @@ import { motion, AnimatePresence } from 'framer-motion';
 // ---------------------------------------------------------------------------
 const BOOT_LINES = [
   { text: 'QUEST SYSTEM v1.0.0', delay: 0, color: 'text-cyan', bold: true },
-  { text: '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', delay: 100, color: 'text-border-glow' },
-  { text: '', delay: 150 },
-  { text: '[BOOT] Initializing quantum verification matrix...', delay: 200, color: 'text-text-dim' },
-  { text: '[BOOT] Loading claude-opus-4-6 model weights...', delay: 400, color: 'text-text-dim' },
-  { text: '[  OK  ] Model loaded (4.2B parameters)', delay: 700, color: 'text-emerald' },
-  { text: '[BOOT] Mounting filesystem observer...', delay: 900, color: 'text-text-dim' },
-  { text: '[  OK  ] Filesystem observer mounted', delay: 1100, color: 'text-emerald' },
-  { text: '[BOOT] Calibrating DAG scheduler...', delay: 1300, color: 'text-text-dim' },
-  { text: '[  OK  ] DAG scheduler online (4 batches, 12 missions)', delay: 1600, color: 'text-emerald' },
-  { text: '[BOOT] Initializing verification harness...', delay: 1800, color: 'text-text-dim' },
-  { text: '[  OK  ] 22 acceptance criteria loaded', delay: 2100, color: 'text-emerald' },
-  { text: '[  OK  ] 5 validation gates armed', delay: 2300, color: 'text-emerald' },
-  { text: '[BOOT] Spawning agent pool...', delay: 2500, color: 'text-text-dim' },
-  { text: '  ├─ backend    [READY]', delay: 2700, color: 'text-cyan' },
-  { text: '  ├─ frontend   [READY]', delay: 2850, color: 'text-purple' },
-  { text: '  ├─ database   [READY]', delay: 3000, color: 'text-amber' },
-  { text: '  └─ testing    [READY]', delay: 3150, color: 'text-emerald' },
-  { text: '', delay: 3300 },
-  { text: '[BOOT] Running pre-flight checks...', delay: 3400, color: 'text-text-dim' },
-  { text: '[  OK  ] Spec validated (47 requirements)', delay: 3600, color: 'text-emerald' },
-  { text: '[  OK  ] Zero file ownership overlaps', delay: 3750, color: 'text-emerald' },
-  { text: '[  OK  ] Drift detection armed', delay: 3900, color: 'text-emerald' },
-  { text: '', delay: 4000 },
-  { text: '▸ THE HARNESS IS MORE IMPORTANT THAN THE ORCHESTRATOR', delay: 4100, color: 'text-cyan', bold: true },
-  { text: '▸ VERIFICATION IS THE MOAT', delay: 4300, color: 'text-cyan', bold: true },
-  { text: '', delay: 4500 },
-  { text: '[SYSTEM] All systems nominal. Launching dashboard...', delay: 4600, color: 'text-emerald', bold: true },
+  { text: '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', delay: 40, color: 'text-border-glow' },
+  { text: '', delay: 60 },
+  { text: '[BOOT] Initializing quantum verification matrix...', delay: 80, color: 'text-text-dim' },
+  { text: '[BOOT] Loading claude-opus-4-6 model weights...', delay: 150, color: 'text-text-dim' },
+  { text: '[  OK  ] Model loaded (4.2B parameters)', delay: 280, color: 'text-emerald' },
+  { text: '[BOOT] Mounting filesystem observer...', delay: 360, color: 'text-text-dim' },
+  { text: '[  OK  ] Filesystem observer mounted', delay: 440, color: 'text-emerald' },
+  { text: '[BOOT] Calibrating DAG scheduler...', delay: 520, color: 'text-text-dim' },
+  { text: '[  OK  ] DAG scheduler online (4 batches, 12 missions)', delay: 640, color: 'text-emerald' },
+  { text: '[BOOT] Initializing verification harness...', delay: 720, color: 'text-text-dim' },
+  { text: '[  OK  ] 22 acceptance criteria loaded', delay: 840, color: 'text-emerald' },
+  { text: '[  OK  ] 5 validation gates armed', delay: 920, color: 'text-emerald' },
+  { text: '[BOOT] Spawning agent pool...', delay: 1000, color: 'text-text-dim' },
+  { text: '  ├─ backend    [READY]', delay: 1080, color: 'text-cyan' },
+  { text: '  ├─ frontend   [READY]', delay: 1140, color: 'text-purple' },
+  { text: '  ├─ database   [READY]', delay: 1200, color: 'text-amber' },
+  { text: '  └─ testing    [READY]', delay: 1260, color: 'text-emerald' },
+  { text: '', delay: 1320 },
+  { text: '[BOOT] Running pre-flight checks...', delay: 1380, color: 'text-text-dim' },
+  { text: '[  OK  ] Spec validated (47 requirements)', delay: 1460, color: 'text-emerald' },
+  { text: '[  OK  ] Zero file ownership overlaps', delay: 1520, color: 'text-emerald' },
+  { text: '[  OK  ] Drift detection armed', delay: 1580, color: 'text-emerald' },
+  { text: '', delay: 1620 },
+  { text: '▸ VERIFICATION IS THE MOAT', delay: 1680, color: 'text-cyan', bold: true },
+  { text: '', delay: 1740 },
+  { text: '[SYSTEM] All systems nominal. Launching dashboard...', delay: 1800, color: 'text-emerald', bold: true },
 ];
 
 const ASCII_LOGO = `
@@ -64,8 +63,8 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
 
   // Phase 1: Show ASCII logo
   useEffect(() => {
-    const t = setTimeout(() => setShowLogo(true), 200);
-    const t2 = setTimeout(() => setPhase('boot'), 1500);
+    const t = setTimeout(() => setShowLogo(true), 100);
+    const t2 = setTimeout(() => setPhase('boot'), 600);
     return () => { clearTimeout(t); clearTimeout(t2); };
   }, []);
 
@@ -84,7 +83,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
     // Complete boot
     const completionTimer = setTimeout(() => {
       setPhase('done');
-    }, 5000);
+    }, 2100);
     timerRefs.current.push(completionTimer);
 
     return () => {
@@ -96,7 +95,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
   // Phase 3: Fade out
   useEffect(() => {
     if (phase !== 'done') return;
-    const t = setTimeout(onComplete, 600);
+    const t = setTimeout(onComplete, 350);
     return () => clearTimeout(t);
   }, [phase, onComplete]);
 
@@ -122,7 +121,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
         <motion.div
           className="fixed inset-0 z-[9999] bg-void flex flex-col items-center justify-center overflow-hidden"
           exit={{ opacity: 0, scale: 1.05 }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
           {/* CRT scanline overlay */}
           <div
@@ -138,7 +137,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
           <motion.div
             className="absolute left-0 right-0 h-[2px] pointer-events-none"
             style={{
-              background: 'linear-gradient(90deg, transparent 0%, rgba(0,229,255,0.15) 50%, transparent 100%)',
+              background: 'linear-gradient(90deg, transparent 0%, rgba(255,0,128,0.15) 50%, transparent 100%)',
               zIndex: 11,
             }}
             animate={{ top: ['-5%', '105%'] }}
@@ -165,7 +164,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4 }}
                   style={{
-                    textShadow: '0 0 20px rgba(0,229,255,0.6), 0 0 40px rgba(0,229,255,0.3)',
+                    textShadow: '0 0 20px rgba(255,0,128,0.6), 0 0 40px rgba(255,0,128,0.3)',
                   }}
                 >
                   {ASCII_LOGO}
@@ -229,7 +228,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
               className="text-center font-mono text-[10px] text-text-dim mt-8 tracking-widest uppercase"
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
-              transition={{ delay: 1, duration: 0.5 }}
+              transition={{ delay: 0.3, duration: 0.3 }}
             >
               Press any key to skip
             </motion.p>
