@@ -30,7 +30,7 @@ import type { AgentConfig } from '../lib/mock-data';
 // ---------------------------------------------------------------------------
 
 const AGENT_COLOR_MAP: Record<string, { tw: string; glow: string; bg: string; border: string }> = {
-  '#00ffaa': { tw: 'cyan', glow: 'box-glow-cyan', bg: 'rgba(0,255,170,0.06)', border: 'rgba(0,255,170,0.2)' },
+  '#00aaff': { tw: 'blue', glow: 'box-glow-blue', bg: 'rgba(0,170,255,0.06)', border: 'rgba(0,170,255,0.2)' },
   '#8b5cf6': { tw: 'purple', glow: 'box-glow-purple', bg: 'rgba(139,92,246,0.06)', border: 'rgba(139,92,246,0.2)' },
   '#fbbf24': { tw: 'amber', glow: 'box-glow-amber', bg: 'rgba(251,191,36,0.06)', border: 'rgba(251,191,36,0.2)' },
   '#34d399': { tw: 'emerald', glow: 'box-glow-emerald', bg: 'rgba(52,211,153,0.06)', border: 'rgba(52,211,153,0.2)' },
@@ -170,7 +170,7 @@ function MissionStatusBar({ agent }: { agent: AgentConfig }) {
 
   const segments = [
     { key: 'completed', count: counts.completed, color: 'var(--color-emerald)', label: 'Done' },
-    { key: 'running', count: counts.running + counts.retrying, color: 'var(--color-cyan)', label: 'Running' },
+    { key: 'running', count: counts.running + counts.retrying, color: 'var(--color-blue)', label: 'Running' },
     { key: 'pending', count: counts.pending, color: 'var(--color-text-dim)', label: 'Pending' },
     { key: 'failed', count: counts.failed, color: 'var(--color-red)', label: 'Failed' },
   ].filter((s) => s.count > 0);
@@ -219,7 +219,7 @@ function MissionStatusBar({ agent }: { agent: AgentConfig }) {
 // ---------------------------------------------------------------------------
 
 function AgentCard({ agent, index }: { agent: AgentConfig; index: number }) {
-  const colorCfg = AGENT_COLOR_MAP[agent.color] || AGENT_COLOR_MAP['#00ffaa'];
+  const colorCfg = AGENT_COLOR_MAP[agent.color] || AGENT_COLOR_MAP['#00aaff'];
   const lucideIcon = AGENT_LUCIDE_ICONS[agent.name];
 
   return (
@@ -414,7 +414,7 @@ agents:
       // YAML keys (word followed by colon)
       result = result.replace(
         /^(\s*)([\w_-]+)(:)/,
-        '$1<span style="color: var(--color-cyan);">$2</span><span style="color: var(--color-text-dim);">$3</span>',
+        '$1<span style="color: var(--color-blue);">$2</span><span style="color: var(--color-text-dim);">$3</span>',
       );
 
       // List dash
@@ -449,8 +449,8 @@ agents:
         {/* Top bar */}
         <div className="flex items-center justify-between px-4 py-2.5 bg-void/80 border-b border-border/40">
           <div className="flex items-center gap-2">
-            <Settings size={13} className="text-cyan-dim" />
-            <span className="font-mono text-[11px] text-cyan-dim tracking-wider uppercase">
+            <Settings size={13} className="text-blue-dim" />
+            <span className="font-mono text-[11px] text-blue-dim tracking-wider uppercase">
               quest.config.yaml
             </span>
           </div>
@@ -537,7 +537,7 @@ function MissionDonut() {
   const total = stats.totalMissions;
   const segments = [
     { label: 'Completed', count: stats.completedMissions, color: 'var(--color-emerald)' },
-    { label: 'Running', count: stats.runningMissions, color: 'var(--color-cyan)' },
+    { label: 'Running', count: stats.runningMissions, color: 'var(--color-blue)' },
     { label: 'Pending', count: stats.pendingMissions, color: 'var(--color-text-dim)' },
   ];
 
@@ -557,7 +557,7 @@ function MissionDonut() {
       className="card p-5 flex flex-col items-center gap-4"
     >
       <div className="flex items-center gap-2 self-start">
-        <Layers size={13} className="text-cyan-dim" />
+        <Layers size={13} className="text-blue-dim" />
         <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-text-dim">
           Mission Distribution
         </span>
@@ -659,7 +659,7 @@ export default function AgentConfigPanel() {
       label: 'Quest Elapsed',
       value: formatTime(elapsed),
       icon: <Clock size={14} />,
-      color: 'var(--color-cyan)',
+      color: 'var(--color-blue)',
     },
     {
       label: 'Est. Remaining',
@@ -685,7 +685,7 @@ export default function AgentConfigPanel() {
       label: 'Files Owned',
       value: stats.filesOwned,
       icon: <FileCode size={14} />,
-      color: 'var(--color-cyan)',
+      color: 'var(--color-blue)',
     },
     {
       label: 'Files Read',
@@ -736,7 +736,7 @@ export default function AgentConfigPanel() {
           <div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-text">
               AGENT CONFIGURATION &{' '}
-              <span className="gradient-text-cyan">TELEMETRY</span>
+              <span className="gradient-text-blue">TELEMETRY</span>
             </h2>
             <p className="font-mono text-xs text-text-dim tracking-wide mt-0.5">
               Agent definitions from quest.config.yaml &mdash; file ownership, scopes, and live performance metrics
@@ -786,7 +786,7 @@ export default function AgentConfigPanel() {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-2 mb-4"
         >
-          <Activity size={13} className="text-cyan-dim" />
+          <Activity size={13} className="text-blue-dim" />
           <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-text-dim">
             Quest Telemetry
           </span>
@@ -825,17 +825,17 @@ export default function AgentConfigPanel() {
         className="relative"
       >
         <div
-          className="card px-6 py-5 border-l-[3px] border-l-cyan"
+          className="card px-6 py-5 border-l-[3px] border-l-blue"
           style={{
-            background: 'linear-gradient(135deg, rgba(0,255,170,0.04), var(--color-surface), rgba(139,92,246,0.03))',
+            background: 'linear-gradient(135deg, rgba(0,170,255,0.04), var(--color-surface), rgba(139,92,246,0.03))',
           }}
         >
           <div className="flex items-start gap-4">
             <div
-              className="w-10 h-10 rounded-lg bg-cyan/10 flex items-center justify-center flex-shrink-0 mt-0.5"
-              style={{ boxShadow: '0 0 16px var(--color-cyan-glow)' }}
+              className="w-10 h-10 rounded-lg bg-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+              style={{ boxShadow: '0 0 16px var(--color-blue-glow)' }}
             >
-              <Zap size={18} className="text-cyan" />
+              <Zap size={18} className="text-blue" />
             </div>
             <div className="space-y-2">
               <h4 className="font-display font-bold text-sm text-text tracking-wide uppercase">
@@ -849,7 +849,7 @@ export default function AgentConfigPanel() {
                 {['File Ownership', 'DAG Ordering', 'Convergence', 'Machine-Verifiable'].map((tag) => (
                   <span
                     key={tag}
-                    className="font-mono text-[10px] px-2 py-0.5 rounded-md bg-cyan/[0.06] text-cyan-dim border border-cyan/15"
+                    className="font-mono text-[10px] px-2 py-0.5 rounded-md bg-blue/[0.06] text-blue-dim border border-blue/15"
                   >
                     {tag}
                   </span>

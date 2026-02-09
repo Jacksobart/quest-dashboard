@@ -46,7 +46,7 @@ function classifyLine(line: string): string {
     return 'text-emerald font-bold';
   }
   if (trimmed.startsWith('\u25b8')) {
-    return 'text-cyan';
+    return 'text-blue';
   }
   if (
     trimmed.includes('\u2588\u2588') ||
@@ -84,10 +84,10 @@ function classifyLine(line: string): string {
 function BlinkingCursor() {
   return (
     <motion.span
-      className="inline-block w-[8px] h-[16px] bg-cyan align-middle ml-[1px]"
+      className="inline-block w-[8px] h-[16px] bg-blue align-middle ml-[1px]"
       animate={{ opacity: [1, 1, 0, 0] }}
       transition={{ duration: 1, repeat: Infinity, times: [0, 0.5, 0.5, 1] }}
-      style={{ boxShadow: '0 0 6px var(--color-cyan-glow)' }}
+      style={{ boxShadow: '0 0 6px var(--color-blue-glow)' }}
     />
   );
 }
@@ -111,7 +111,7 @@ function CopyButton({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="absolute right-3 top-0 bottom-0 my-auto h-6 px-2 rounded border border-border/60 bg-surface/80 backdrop-blur-sm text-text-dim hover:text-cyan hover:border-cyan/40 transition-all duration-200 opacity-0 group-hover/cmd:opacity-100 flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider"
+      className="absolute right-3 top-0 bottom-0 my-auto h-6 px-2 rounded border border-border/60 bg-surface/80 backdrop-blur-sm text-text-dim hover:text-blue hover:border-blue/40 transition-all duration-200 opacity-0 group-hover/cmd:opacity-100 flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider"
       aria-label="Copy command"
     >
       <AnimatePresence mode="wait">
@@ -200,8 +200,8 @@ export default function TerminalSimulator() {
   // Auto-scroll to bottom
   // ---------------------------------------------------------------------------
   const scrollToBottom = useCallback(() => {
-    if (bottomRef.current) {
-      bottomRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
     }
   }, []);
 
@@ -361,7 +361,7 @@ export default function TerminalSimulator() {
           </span>
           <div className="flex-1 min-w-0">
             <span className="text-emerald">{PROMPT}</span>
-            <span className="text-cyan ml-2">{entry.cmd}</span>
+            <span className="text-blue ml-2">{entry.cmd}</span>
             {entry.timing !== undefined && (
               <span className="text-text-dim ml-3 text-[11px]">
                 ({entry.timing}s)
@@ -410,7 +410,7 @@ export default function TerminalSimulator() {
           </span>
           <div className="flex-1 min-w-0">
             <span className="text-emerald">{PROMPT}</span>
-            <span className="text-cyan ml-2">
+            <span className="text-blue ml-2">
               {currentEntry.cmd.slice(0, typedChars)}
             </span>
             {isTyping && <BlinkingCursor />}
@@ -485,7 +485,7 @@ export default function TerminalSimulator() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <span className="badge bg-cyan/[0.08] text-cyan border border-cyan/20 mb-4 inline-flex">
+        <span className="badge bg-blue/[0.08] text-blue border border-blue/20 mb-4 inline-flex">
           <Terminal size={12} />
           LIVE DEMO
         </span>
@@ -510,7 +510,7 @@ export default function TerminalSimulator() {
           className="rounded-xl overflow-hidden border border-border/80 relative"
           style={{
             boxShadow:
-              '0 0 40px rgba(0, 255, 170, 0.06), 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.03) inset',
+              '0 0 40px rgba(0, 170, 255, 0.06), 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.03) inset',
           }}
         >
           {/* macOS title bar */}
@@ -543,7 +543,7 @@ export default function TerminalSimulator() {
               </button>
               <button
                 onClick={handlePlayPause}
-                className="p-1.5 rounded-md text-text-dim hover:text-cyan hover:bg-cyan/10 transition-all duration-200"
+                className="p-1.5 rounded-md text-text-dim hover:text-blue hover:bg-blue/10 transition-all duration-200"
                 aria-label={isPlaying ? 'Pause' : 'Play'}
                 title={isPlaying ? 'Pause' : 'Play'}
               >
@@ -584,7 +584,7 @@ export default function TerminalSimulator() {
               className="absolute top-0 left-0 right-0 h-24 pointer-events-none z-10"
               style={{
                 background:
-                  'linear-gradient(180deg, rgba(0, 255, 170, 0.015) 0%, transparent 100%)',
+                  'linear-gradient(180deg, rgba(0, 170, 255, 0.015) 0%, transparent 100%)',
               }}
             />
 
@@ -630,7 +630,7 @@ export default function TerminalSimulator() {
                     playbackState === 'finished'
                       ? 'bg-emerald'
                       : isPlaying
-                      ? 'bg-cyan animate-pulse'
+                      ? 'bg-blue animate-pulse'
                       : 'bg-amber'
                   }`}
                 />
@@ -661,7 +661,7 @@ export default function TerminalSimulator() {
           className="h-16 mx-8 -mt-1 rounded-b-2xl opacity-40 blur-xl pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse at center top, rgba(0, 255, 170, 0.12), transparent 70%)',
+              'radial-gradient(ellipse at center top, rgba(0, 170, 255, 0.12), transparent 70%)',
           }}
         />
       </motion.div>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
@@ -13,7 +13,6 @@ import VerificationGates from './components/VerificationGates';
 import DriftDetection from './components/DriftDetection';
 import AgentConfigPanel from './components/AgentConfigPanel';
 import SectionDivider from './components/SectionDivider';
-import BootSequence from './components/BootSequence';
 import CustomCursor from './components/CustomCursor';
 import ScrollProgress from './components/ScrollProgress';
 import CommandPalette from './components/CommandPalette';
@@ -28,16 +27,9 @@ import {
 
 function App() {
   const [activeSection, setActiveSection] = useState('hero');
-  const [booted, setBooted] = useState(false);
   const mainRef = useRef<HTMLDivElement>(null);
 
-  const handleBootComplete = useCallback(() => {
-    window.scrollTo(0, 0);
-    setBooted(true);
-  }, []);
-
   useEffect(() => {
-    if (!booted) return;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -52,35 +44,21 @@ function App() {
     const sections = document.querySelectorAll('section[id]');
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, [booted]);
+  }, []);
 
   return (
     <>
-      {/* Boot Sequence */}
-      <AnimatePresence>
-        {!booted && <BootSequence onComplete={handleBootComplete} />}
-      </AnimatePresence>
+      <CustomCursor />
+      <ScrollProgress />
+      <CommandPalette />
 
-      {/* Custom Cursor */}
-      {booted && <CustomCursor />}
-
-      {/* Scroll Progress */}
-      {booted && <ScrollProgress />}
-
-      {/* Command Palette */}
-      {booted && <CommandPalette />}
-
-      {/* Main App */}
-      <motion.div
+      <div
         ref={mainRef}
         className="relative bg-void min-h-screen"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: booted ? 1 : 0 }}
-        transition={{ duration: 0.8, delay: 0.1 }}
       >
         {/* Ambient background effects */}
         <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-cyan/[0.03] rounded-full blur-[150px]" />
+          <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-blue/[0.03] rounded-full blur-[150px]" />
           <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-purple/[0.04] rounded-full blur-[120px]" />
           <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-amber/[0.02] rounded-full blur-[100px]" />
         </div>
@@ -100,7 +78,7 @@ function App() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.5 }}
               >
                 <PipelineVisualizer />
               </motion.div>
@@ -114,7 +92,7 @@ function App() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <TerminalSimulator />
             </motion.div>
@@ -127,7 +105,7 @@ function App() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <DagVisualizer />
             </motion.div>
@@ -140,7 +118,7 @@ function App() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <MissionControl />
             </motion.div>
@@ -153,7 +131,7 @@ function App() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <MissionYaml />
             </motion.div>
@@ -166,7 +144,7 @@ function App() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <GapAnalysis />
             </motion.div>
@@ -179,7 +157,7 @@ function App() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <RequirementMatrix />
             </motion.div>
@@ -192,7 +170,7 @@ function App() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <VerificationGates />
             </motion.div>
@@ -205,7 +183,7 @@ function App() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <DriftDetection />
             </motion.div>
@@ -218,7 +196,7 @@ function App() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <AgentConfigPanel />
             </motion.div>
@@ -228,20 +206,20 @@ function App() {
           <footer className="relative py-24 border-t border-border overflow-hidden">
             {/* Background effects */}
             <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-cyan/[0.03] rounded-full blur-[150px]" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-blue/[0.03] rounded-full blur-[150px]" />
               <div className="absolute bottom-20 right-1/4 w-[300px] h-[300px] bg-purple/[0.04] rounded-full blur-[100px]" />
             </div>
 
             <div className="section-container relative z-10">
               {/* Decorative top line */}
               <div className="flex items-center gap-4 mb-12 justify-center">
-                <div className="h-px flex-1 max-w-[200px] bg-gradient-to-r from-transparent to-cyan/40" />
+                <div className="h-px flex-1 max-w-[200px] bg-gradient-to-r from-transparent to-blue/40" />
                 <motion.div
-                  className="w-3 h-3 rotate-45 border border-cyan/40"
+                  className="w-3 h-3 rotate-45 border border-blue/40"
                   animate={{ rotate: [45, 225, 45] }}
                   transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
                 />
-                <div className="h-px flex-1 max-w-[200px] bg-gradient-to-l from-transparent to-cyan/40" />
+                <div className="h-px flex-1 max-w-[200px] bg-gradient-to-l from-transparent to-blue/40" />
               </div>
 
               {/* Stats grid */}
@@ -253,18 +231,18 @@ function App() {
                 transition={{ duration: 0.6, staggerChildren: 0.1 }}
               >
                 {[
-                  { label: 'Phases', value: '5', icon: Zap, color: 'text-cyan' },
+                  { label: 'Phases', value: '5', icon: Zap, color: 'text-blue' },
                   { label: 'Missions', value: '12', icon: GitBranch, color: 'text-purple' },
                   { label: 'Agents', value: '4', icon: Cpu, color: 'text-amber' },
                   { label: 'Gates', value: '6', icon: ShieldCheck, color: 'text-emerald' },
-                  { label: 'Criteria', value: '22', icon: Terminal, color: 'text-cyan' },
+                  { label: 'Criteria', value: '22', icon: Terminal, color: 'text-blue' },
                   { label: 'Conflicts', value: '0', icon: Globe, color: 'text-emerald' },
                 ].map((stat, i) => {
                   const Icon = stat.icon;
                   return (
                     <motion.div
                       key={stat.label}
-                      className="card p-4 text-center group hover:border-cyan/30 transition-all duration-300"
+                      className="card p-4 text-center group hover:border-blue/30 transition-all duration-300"
                       initial={{ opacity: 0, y: 16 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -310,8 +288,8 @@ function App() {
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 + i * 0.08, duration: 0.3 }}
                       whileHover={{
-                        borderColor: 'rgba(0, 229, 255, 0.3)',
-                        color: 'var(--color-cyan)',
+                        borderColor: 'rgba(0, 170, 255, 0.3)',
+                        color: 'var(--color-blue)',
                       }}
                     >
                       {principle}
@@ -325,7 +303,7 @@ function App() {
                 <div className="flex items-center gap-3 mb-2">
                   <span className="block w-12 h-px bg-gradient-to-r from-transparent to-border-glow" />
                   <span
-                    className="font-display text-xl font-bold gradient-text-cyan glitch-wrapper"
+                    className="font-display text-xl font-bold gradient-text-blue glitch-wrapper"
                     data-text="QUEST"
                   >
                     QUEST
@@ -355,7 +333,7 @@ function App() {
             </div>
           </footer>
         </main>
-      </motion.div>
+      </div>
     </>
   );
 }

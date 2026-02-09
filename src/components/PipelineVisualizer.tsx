@@ -32,12 +32,12 @@ const statusConfig = {
     label: 'COMPLETED',
   },
   active: {
-    border: 'border-cyan/60',
-    bg: 'bg-cyan/5',
-    glow: 'box-glow-cyan',
-    text: 'text-cyan',
-    ringColor: 'bg-cyan',
-    dotColor: 'bg-cyan',
+    border: 'border-blue/60',
+    bg: 'bg-blue/5',
+    glow: 'box-glow-blue',
+    text: 'text-blue',
+    ringColor: 'bg-blue',
+    dotColor: 'bg-blue',
     label: 'ACTIVE',
   },
   pending: {
@@ -195,13 +195,13 @@ function ConnectionLine({
     fromStatus === 'completed' && toStatus === 'completed'
       ? 'bg-emerald/30'
       : fromStatus === 'completed' && toStatus === 'active'
-        ? 'bg-cyan/30'
+        ? 'bg-blue/30'
         : 'bg-border';
 
   const dotColor =
     fromStatus === 'completed' && toStatus === 'completed'
       ? 'bg-emerald'
-      : 'bg-cyan';
+      : 'bg-blue';
 
   return (
     <motion.div
@@ -218,7 +218,7 @@ function ConnectionLine({
         {isFlowing && (
           <div
             className={`absolute inset-0 rounded-full ${
-              toStatus === 'active' ? 'bg-cyan/20' : 'bg-emerald/20'
+              toStatus === 'active' ? 'bg-blue/20' : 'bg-emerald/20'
             }`}
             style={{
               filter: 'blur(3px)',
@@ -255,13 +255,13 @@ function ConnectionLineVertical({
     fromStatus === 'completed' && toStatus === 'completed'
       ? 'bg-emerald/30'
       : fromStatus === 'completed' && toStatus === 'active'
-        ? 'bg-cyan/30'
+        ? 'bg-blue/30'
         : 'bg-border';
 
   const dotColor =
     fromStatus === 'completed' && toStatus === 'completed'
       ? 'bg-emerald'
-      : 'bg-cyan';
+      : 'bg-blue';
 
   return (
     <motion.div
@@ -276,7 +276,7 @@ function ConnectionLineVertical({
         {isFlowing && (
           <div
             className={`absolute inset-0 rounded-full ${
-              toStatus === 'active' ? 'bg-cyan/20' : 'bg-emerald/20'
+              toStatus === 'active' ? 'bg-blue/20' : 'bg-emerald/20'
             }`}
             style={{ filter: 'blur(3px)' }}
           />
@@ -325,7 +325,7 @@ function PhaseCard({
       {/* Active pulsing border ring */}
       {phase.status === 'active' && (
         <motion.div
-          className="absolute -inset-[1px] rounded-xl border border-cyan/40 pointer-events-none"
+          className="absolute -inset-[1px] rounded-xl border border-blue/40 pointer-events-none"
           animate={{ opacity: [0.4, 1, 0.4] }}
           transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
         />
@@ -341,7 +341,7 @@ function PhaseCard({
               phase.status === 'completed'
                 ? 'border-emerald/40 bg-emerald/10'
                 : phase.status === 'active'
-                  ? 'border-cyan/40 bg-cyan/10'
+                  ? 'border-blue/40 bg-blue/10'
                   : 'border-border bg-deep'
             }
           `}
@@ -351,7 +351,7 @@ function PhaseCard({
               phase.status === 'completed'
                 ? 'text-emerald'
                 : phase.status === 'active'
-                  ? 'text-cyan'
+                  ? 'text-blue'
                   : 'text-text-dim'
             }`}
           >
@@ -369,7 +369,7 @@ function PhaseCard({
               animate={{ rotate: 360 }}
               transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
             >
-              <Loader2 className="w-4 h-4 text-cyan" />
+              <Loader2 className="w-4 h-4 text-blue" />
             </motion.div>
           )}
           {phase.status === 'pending' && (
@@ -391,13 +391,13 @@ function PhaseCard({
             phase.status === 'completed'
               ? 'text-emerald'
               : phase.status === 'active'
-                ? 'text-cyan'
+                ? 'text-blue'
                 : 'text-text-dim'
           }`}
         />
         <h3
           className={`font-display font-bold text-base tracking-wide ${
-            phase.status === 'active' ? 'text-cyan glow-cyan' : 'text-text'
+            phase.status === 'active' ? 'text-blue glow-blue' : 'text-text'
           }`}
         >
           {phase.name}
@@ -410,7 +410,7 @@ function PhaseCard({
           font-mono text-[11px] leading-relaxed px-2.5 py-1.5 rounded-md mb-3 break-all
           ${
             phase.status === 'active'
-              ? 'bg-cyan/10 text-cyan/80 border border-cyan/20'
+              ? 'bg-blue/10 text-blue/80 border border-blue/20'
               : phase.status === 'completed'
                 ? 'bg-emerald/5 text-emerald/60 border border-emerald/10'
                 : 'bg-deep text-text-dim border border-border'
@@ -435,7 +435,7 @@ function PhaseCard({
               phase.status === 'completed'
                 ? 'bg-emerald/10 text-emerald border border-emerald/20'
                 : phase.status === 'active'
-                  ? 'bg-cyan/10 text-cyan border border-cyan/20'
+                  ? 'bg-blue/10 text-blue border border-blue/20'
                   : 'bg-deep text-text-dim border border-border'
             }
           `}
@@ -472,15 +472,15 @@ export default function PipelineVisualizer() {
         transition={{ duration: 0.6 }}
       >
         <div className="inline-flex items-center gap-2 mb-4">
-          <div className="h-px w-8 bg-gradient-to-r from-transparent to-cyan/60" />
-          <span className="font-mono text-xs text-cyan tracking-[0.3em] uppercase">
+          <div className="h-px w-8 bg-gradient-to-r from-transparent to-blue/60" />
+          <span className="font-mono text-xs text-blue tracking-[0.3em] uppercase">
             System Architecture
           </span>
-          <div className="h-px w-8 bg-gradient-to-l from-transparent to-cyan/60" />
+          <div className="h-px w-8 bg-gradient-to-l from-transparent to-blue/60" />
         </div>
 
         <h2 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-          <span className="gradient-text-cyan">THE 5-PHASE</span>{' '}
+          <span className="gradient-text-blue">THE 5-PHASE</span>{' '}
           <span className="text-text">PIPELINE</span>
         </h2>
 
@@ -504,7 +504,7 @@ export default function PipelineVisualizer() {
             className="absolute inset-y-0 left-0 rounded-full"
             style={{
               background:
-                'linear-gradient(90deg, var(--color-emerald), var(--color-cyan))',
+                'linear-gradient(90deg, var(--color-emerald), var(--color-blue))',
             }}
             initial={{ width: '0%' }}
             animate={isInView ? { width: '65%' } : {}}
@@ -515,7 +515,7 @@ export default function PipelineVisualizer() {
             className="absolute inset-y-0 w-20"
             style={{
               background:
-                'linear-gradient(90deg, transparent, rgba(0,255,170,0.4), transparent)',
+                'linear-gradient(90deg, transparent, rgba(0,170,255,0.4), transparent)',
             }}
             initial={{ left: '0%' }}
             animate={isInView ? { left: ['0%', '65%'] } : {}}
@@ -605,7 +605,7 @@ export default function PipelineVisualizer() {
         </div>
         <div className="flex items-center gap-2">
           <motion.div
-            className="w-2 h-2 rounded-full bg-cyan"
+            className="w-2 h-2 rounded-full bg-blue"
             animate={{ opacity: [1, 0.4, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
@@ -625,9 +625,9 @@ export default function PipelineVisualizer() {
             animate={{ opacity: [0.4, 1, 0.4] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <div className="w-1 h-1 rounded-full bg-cyan" />
-            <div className="w-1 h-1 rounded-full bg-cyan" />
-            <div className="w-1 h-1 rounded-full bg-cyan" />
+            <div className="w-1 h-1 rounded-full bg-blue" />
+            <div className="w-1 h-1 rounded-full bg-blue" />
+            <div className="w-1 h-1 rounded-full bg-blue" />
           </motion.div>
           <span className="text-text-secondary">Data Flow</span>
         </div>

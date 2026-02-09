@@ -13,13 +13,13 @@ export default function SectionDivider({ variant = 'default' }: SectionDividerPr
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border/60 to-border" />
             <div className="flex items-center gap-2">
               <motion.div
-                className="w-1.5 h-1.5 rounded-full bg-cyan/60"
+                className="w-1.5 h-1.5 rounded-full bg-blue/60"
                 animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              <div className="w-8 h-px bg-cyan/30" />
-              <div className="w-2 h-2 rotate-45 border border-cyan/30" />
-              <div className="w-8 h-px bg-cyan/30" />
+              <div className="w-8 h-px bg-blue/30" />
+              <div className="w-2 h-2 rotate-45 border border-blue/30" />
+              <div className="w-8 h-px bg-blue/30" />
               <motion.div
                 className="w-1.5 h-1.5 rounded-full bg-purple/60"
                 animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
@@ -38,12 +38,12 @@ export default function SectionDivider({ variant = 'default' }: SectionDividerPr
       <div className="relative py-6">
         <div className="section-container">
           <div className="relative h-px w-full">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue/20 to-transparent" />
             <motion.div
               className="absolute h-px top-0"
               style={{
                 width: '120px',
-                background: 'linear-gradient(90deg, transparent, var(--color-cyan), transparent)',
+                background: 'linear-gradient(90deg, transparent, var(--color-blue), transparent)',
                 filter: 'blur(1px)',
               }}
               animate={{ left: ['-120px', 'calc(100% + 120px)'] }}

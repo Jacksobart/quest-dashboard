@@ -17,6 +17,9 @@
   --color-cyan: #00ffaa;
   --color-cyan-dim: #00cc88;
   --color-cyan-glow: #00ffaa40;
+  --color-blue: #00aaff;
+  --color-blue-dim: #0088cc;
+  --color-blue-glow: #00aaff40;
   --color-purple: #8b5cf6;
   --color-purple-dim: #6d40d4;
   --color-purple-glow: #8b5cf640;
@@ -41,8 +44,8 @@
 ::-webkit-scrollbar-thumb:hover { background: var(--color-border-glow); }
 
 ::selection {
-  background: var(--color-cyan-glow);
-  color: var(--color-cyan);
+  background: var(--color-blue-glow);
+  color: var(--color-blue);
 }
 
 html {
@@ -83,11 +86,13 @@ body {
 }
 
 .glow-cyan { text-shadow: 0 0 20px var(--color-cyan-glow), 0 0 40px var(--color-cyan-glow); }
+.glow-blue { text-shadow: 0 0 20px var(--color-blue-glow), 0 0 40px var(--color-blue-glow); }
 .glow-purple { text-shadow: 0 0 20px var(--color-purple-glow), 0 0 40px var(--color-purple-glow); }
 .glow-amber { text-shadow: 0 0 20px var(--color-amber-glow), 0 0 40px var(--color-amber-glow); }
 .glow-emerald { text-shadow: 0 0 20px var(--color-emerald-glow), 0 0 40px var(--color-emerald-glow); }
 
 .box-glow-cyan { box-shadow: 0 0 20px var(--color-cyan-glow), inset 0 0 20px rgba(0, 255, 170, 0.05); }
+.box-glow-blue { box-shadow: 0 0 20px var(--color-blue-glow), inset 0 0 20px rgba(0, 170, 255, 0.05); }
 .box-glow-purple { box-shadow: 0 0 20px var(--color-purple-glow), inset 0 0 20px rgba(139, 92, 246, 0.05); }
 .box-glow-amber { box-shadow: 0 0 20px var(--color-amber-glow), inset 0 0 20px rgba(251, 191, 36, 0.05); }
 .box-glow-emerald { box-shadow: 0 0 20px var(--color-emerald-glow), inset 0 0 20px rgba(52, 211, 153, 0.05); }
@@ -104,6 +109,13 @@ body {
 
 .gradient-text-cyan {
   background: linear-gradient(135deg, var(--color-cyan), var(--color-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, var(--color-blue), var(--color-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -140,20 +152,20 @@ body {
 .quest-cursor-dot {
   width: 8px;
   height: 8px;
-  background: var(--color-cyan);
+  background: var(--color-blue);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan-glow);
+  box-shadow: 0 0 10px var(--color-blue), 0 0 20px var(--color-blue-glow);
   transition: width 0.15s, height 0.15s, background 0.15s;
 }
 
 .quest-cursor-ring {
   width: 36px;
   height: 36px;
-  border: 1.5px solid rgba(0, 255, 170, 0.4);
+  border: 1.5px solid rgba(0, 170, 255, 0.4);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -181,10 +193,10 @@ body {
   top: 0;
   left: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--color-cyan), var(--color-purple), var(--color-amber));
+  background: linear-gradient(90deg, var(--color-blue), var(--color-purple), var(--color-amber));
   z-index: 9999;
   transform-origin: 0 0;
-  box-shadow: 0 0 8px var(--color-cyan-glow), 0 0 16px var(--color-cyan-glow);
+  box-shadow: 0 0 8px var(--color-blue-glow), 0 0 16px var(--color-blue-glow);
 }
 
 /* Glitch effect */
@@ -235,10 +247,10 @@ body {
 }
 
 .glitch-wrapper::after {
-  color: var(--color-purple);
+  color: var(--color-blue);
   animation: glitch-2 4s infinite linear;
   animation-delay: 0.05s;
-  text-shadow: -2px 0 var(--color-purple);
+  text-shadow: -2px 0 var(--color-blue);
   opacity: 0.7;
 }
 
@@ -263,8 +275,8 @@ body {
 
 .boot-text {
   font-family: var(--font-mono);
-  color: var(--color-cyan);
-  text-shadow: 0 0 10px var(--color-cyan-glow);
+  color: var(--color-blue);
+  text-shadow: 0 0 10px var(--color-blue-glow);
 }
 
 /* Animated gradient border */
@@ -290,7 +302,7 @@ body {
   position: absolute;
   inset: -2px;
   border-radius: 14px;
-  background: conic-gradient(from var(--gradient-angle), var(--color-cyan), var(--color-purple), var(--color-amber), var(--color-emerald), var(--color-cyan));
+  background: conic-gradient(from var(--gradient-angle), var(--color-blue), var(--color-purple), var(--color-amber), var(--color-emerald), var(--color-blue));
   animation: gradient-rotate 4s linear infinite;
   z-index: -1;
   opacity: 0;

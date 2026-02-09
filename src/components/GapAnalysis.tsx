@@ -70,7 +70,7 @@ function syntaxHighlight(json: string): string {
         let cls = 'color: var(--color-amber)'; // number
         if (/^"/.test(match)) {
           if (/:$/.test(match)) {
-            cls = 'color: var(--color-cyan)'; // key
+            cls = 'color: var(--color-blue)'; // key
           } else {
             cls = 'color: var(--color-emerald)'; // string
           }
@@ -170,7 +170,7 @@ function EvidenceBlock({ evidence }: { evidence: GapType['evidence'][number] }) 
     <div className="space-y-2">
       {/* File location */}
       <div className="flex items-center gap-2 text-text-secondary">
-        <FileCode size={13} className="text-cyan-dim flex-shrink-0" />
+        <FileCode size={13} className="text-blue-dim flex-shrink-0" />
         <span className="font-mono text-xs truncate">{evidence.location}</span>
         <span className="badge text-[9px] py-0 px-1.5 bg-surface border border-border text-text-dim">
           {evidence.type.replace('_', ' ')}
@@ -203,8 +203,8 @@ function JsonPreview({ gap }: { gap: GapType }) {
   return (
     <div className="relative rounded-lg overflow-hidden border border-border/60">
       <div className="flex items-center gap-2 px-3 py-1.5 bg-void/80 border-b border-border/40">
-        <Braces size={11} className="text-cyan-dim" />
-        <span className="font-mono text-[10px] text-cyan-dim tracking-wider uppercase">Structured JSON Output</span>
+        <Braces size={11} className="text-blue-dim" />
+        <span className="font-mono text-[10px] text-blue-dim tracking-wider uppercase">Structured JSON Output</span>
       </div>
       <pre
         className="px-4 py-3 bg-void/60 font-mono text-[11px] leading-relaxed overflow-x-auto max-h-80"
@@ -308,7 +308,7 @@ function GapCard({ gap, index }: { gap: GapType; index: number }) {
               {/* Evidence */}
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <Search size={13} className="text-cyan-dim" />
+                  <Search size={13} className="text-blue-dim" />
                   <h4 className="font-mono text-[11px] tracking-[0.12em] uppercase text-text-secondary">
                     Evidence
                   </h4>
@@ -324,7 +324,7 @@ function GapCard({ gap, index }: { gap: GapType; index: number }) {
               {/* Testable assertion */}
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <Terminal size={13} className="text-cyan-dim" />
+                  <Terminal size={13} className="text-blue-dim" />
                   <h4 className="font-mono text-[11px] tracking-[0.12em] uppercase text-text-secondary">
                     Testable Assertion
                   </h4>
@@ -343,13 +343,13 @@ function GapCard({ gap, index }: { gap: GapType; index: number }) {
 
               {/* Disposition */}
               {gap.disposition && (
-                <div className="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-cyan/[0.04] border border-cyan/10">
-                  <ShieldAlert size={14} className="text-cyan-dim flex-shrink-0" />
+                <div className="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-blue/[0.04] border border-blue/10">
+                  <ShieldAlert size={14} className="text-blue-dim flex-shrink-0" />
                   <div>
                     <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-text-dim block">
                       Disposition
                     </span>
-                    <span className="font-mono text-xs text-cyan">
+                    <span className="font-mono text-xs text-blue">
                       {gap.disposition}
                     </span>
                   </div>
@@ -363,7 +363,7 @@ function GapCard({ gap, index }: { gap: GapType; index: number }) {
                     e.stopPropagation();
                     setShowJson(!showJson);
                   }}
-                  className="flex items-center gap-2 font-mono text-[11px] text-text-dim hover:text-cyan transition-colors cursor-pointer"
+                  className="flex items-center gap-2 font-mono text-[11px] text-text-dim hover:text-blue transition-colors cursor-pointer"
                 >
                   <Braces size={13} />
                   {showJson ? 'Hide' : 'Show'} structured JSON
@@ -436,10 +436,10 @@ export default function GapAnalysis() {
           className="flex items-center gap-3"
         >
           <div
-            className="w-10 h-10 rounded-lg bg-cyan/10 flex items-center justify-center"
-            style={{ boxShadow: '0 0 20px var(--color-cyan-glow)' }}
+            className="w-10 h-10 rounded-lg bg-blue/10 flex items-center justify-center"
+            style={{ boxShadow: '0 0 20px var(--color-blue-glow)' }}
           >
-            <FileCode size={18} className="text-cyan" />
+            <FileCode size={18} className="text-blue" />
           </div>
           <div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-text">
@@ -452,7 +452,7 @@ export default function GapAnalysis() {
         </motion.div>
 
         {/* Decorative line */}
-        <div className="h-px bg-gradient-to-r from-cyan/40 via-border to-transparent" />
+        <div className="h-px bg-gradient-to-r from-blue/40 via-border to-transparent" />
       </div>
 
       {/* Summary Bar */}
@@ -489,7 +489,7 @@ export default function GapAnalysis() {
                     isActive
                       ? statusColor
                         ? `${statusColor.bg} ${statusColor.text}`
-                        : 'bg-cyan/10 text-cyan'
+                        : 'bg-blue/10 text-blue'
                       : 'text-text-dim hover:text-text-secondary hover:bg-white/[0.03]'
                   }
                 `}
@@ -513,7 +513,7 @@ export default function GapAnalysis() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search gaps..."
-            className="w-full bg-surface border border-border rounded-lg pl-9 pr-8 py-2 font-mono text-xs text-text placeholder:text-text-dim focus:outline-none focus:border-cyan/40 focus:ring-1 focus:ring-cyan/20 transition-all"
+            className="w-full bg-surface border border-border rounded-lg pl-9 pr-8 py-2 font-mono text-xs text-text placeholder:text-text-dim focus:outline-none focus:border-blue/40 focus:ring-1 focus:ring-blue/20 transition-all"
           />
           {search && (
             <button
@@ -550,7 +550,7 @@ export default function GapAnalysis() {
             <p className="font-mono text-sm text-text-secondary">No gaps match the current filter.</p>
             <button
               onClick={() => { setFilter('all'); setSearch(''); }}
-              className="mt-3 font-mono text-xs text-cyan hover:underline cursor-pointer"
+              className="mt-3 font-mono text-xs text-blue hover:underline cursor-pointer"
             >
               Reset filters
             </button>

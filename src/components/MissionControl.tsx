@@ -24,7 +24,7 @@ import type { Mission } from '../lib/mock-data';
 // ---------------------------------------------------------------------------
 
 const AGENT_COLORS: Record<string, string> = {
-  backend: '#00ffaa',
+  backend: '#00aaff',
   frontend: '#8b5cf6',
   database: '#fbbf24',
   testing: '#34d399',
@@ -49,8 +49,8 @@ const STATUS_CONFIG: Record<
   },
   running: {
     label: 'RUNNING',
-    color: 'var(--color-cyan)',
-    bg: 'rgba(0,255,170,0.1)',
+    color: 'var(--color-blue)',
+    bg: 'rgba(0,170,255,0.1)',
     icon: <Play size={12} />,
   },
   pending: {
@@ -182,7 +182,7 @@ function MissionCard({ mission, index }: { mission: Mission; index: number }) {
 
   // Card-level styling based on status
   const cardBorderStyle = isRunning
-    ? { borderColor: 'rgba(0,255,170,0.25)' }
+    ? { borderColor: 'rgba(0,170,255,0.25)' }
     : isCompleted
       ? { borderColor: 'rgba(52,211,153,0.15)' }
       : {};
@@ -190,7 +190,7 @@ function MissionCard({ mission, index }: { mission: Mission; index: number }) {
   const cardBgOverlay = isCompleted
     ? 'rgba(52,211,153,0.02)'
     : isRunning
-      ? 'rgba(0,255,170,0.01)'
+      ? 'rgba(0,170,255,0.01)'
       : undefined;
 
   return (
@@ -212,7 +212,7 @@ function MissionCard({ mission, index }: { mission: Mission; index: number }) {
           className="absolute -inset-px rounded-xl pointer-events-none"
           style={{
             background:
-              'linear-gradient(135deg, rgba(0,255,170,0.2), rgba(139,92,246,0.1), rgba(0,255,170,0.2))',
+              'linear-gradient(135deg, rgba(0,170,255,0.2), rgba(139,92,246,0.1), rgba(0,170,255,0.2))',
             backgroundSize: '200% 200%',
           }}
           animate={{
@@ -315,10 +315,10 @@ function MissionCard({ mission, index }: { mission: Mission; index: number }) {
                 background: isCompleted
                   ? 'linear-gradient(90deg, var(--color-emerald-dim), var(--color-emerald))'
                   : isRunning
-                    ? 'linear-gradient(90deg, var(--color-cyan-dim), var(--color-cyan))'
+                    ? 'linear-gradient(90deg, var(--color-blue-dim), var(--color-blue))'
                     : 'linear-gradient(90deg, var(--color-text-dim), var(--color-text-dim))',
                 boxShadow: isRunning
-                  ? '0 0 8px var(--color-cyan-glow)'
+                  ? '0 0 8px var(--color-blue-glow)'
                   : isCompleted
                     ? '0 0 8px var(--color-emerald-glow)'
                     : 'none',
@@ -396,18 +396,18 @@ function MissionCard({ mission, index }: { mission: Mission; index: number }) {
                     background: passed
                       ? 'rgba(52,211,153,0.15)'
                       : inProgress
-                        ? 'rgba(0,255,170,0.1)'
+                        ? 'rgba(0,170,255,0.1)'
                         : 'rgba(85,85,119,0.1)',
                     color: passed
                       ? 'var(--color-emerald)'
                       : inProgress
-                        ? 'var(--color-cyan)'
+                        ? 'var(--color-blue)'
                         : 'var(--color-text-dim)',
                     border: `1px solid ${
                       passed
                         ? 'rgba(52,211,153,0.3)'
                         : inProgress
-                          ? 'rgba(0,255,170,0.2)'
+                          ? 'rgba(0,170,255,0.2)'
                           : 'rgba(85,85,119,0.2)'
                     }`,
                   }}
@@ -462,15 +462,15 @@ export default function MissionControl() {
           <div
             className="w-8 h-8 rounded-lg flex items-center justify-center"
             style={{
-              background: 'rgba(0,255,170,0.1)',
-              border: '1px solid rgba(0,255,170,0.2)',
+              background: 'rgba(0,170,255,0.1)',
+              border: '1px solid rgba(0,170,255,0.2)',
             }}
           >
-            <Zap size={16} style={{ color: 'var(--color-cyan)' }} />
+            <Zap size={16} style={{ color: 'var(--color-blue)' }} />
           </div>
           <h2 className="font-display font-bold text-2xl md:text-3xl tracking-tight text-text">
             MISSION{' '}
-            <span className="gradient-text-cyan">CONTROL</span>
+            <span className="gradient-text-blue">CONTROL</span>
           </h2>
         </div>
         <p className="text-text-secondary text-sm md:text-base max-w-2xl leading-relaxed">
@@ -490,18 +490,18 @@ export default function MissionControl() {
           <div className="relative flex items-center justify-center">
             <motion.div
               className="absolute w-6 h-6 rounded-full"
-              style={{ background: 'var(--color-cyan-glow)' }}
+              style={{ background: 'var(--color-blue-glow)' }}
               animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             />
-            <Clock size={14} style={{ color: 'var(--color-cyan)' }} className="relative z-10" />
+            <Clock size={14} style={{ color: 'var(--color-blue)' }} className="relative z-10" />
           </div>
           <span className="font-mono text-[11px] text-text-dim uppercase tracking-[0.1em]">
             Quest Elapsed
           </span>
           <span
-            className="font-mono text-lg font-bold tracking-wider glow-cyan"
-            style={{ color: 'var(--color-cyan)' }}
+            className="font-mono text-lg font-bold tracking-wider glow-blue"
+            style={{ color: 'var(--color-blue)' }}
           >
             {formatElapsed(elapsed)}
           </span>
@@ -545,7 +545,7 @@ export default function MissionControl() {
           label="Running"
           value={stats.runningMissions}
           icon={<Activity size={14} />}
-          color="var(--color-cyan)"
+          color="var(--color-blue)"
           animate
         />
         <StatCard
@@ -583,15 +583,15 @@ export default function MissionControl() {
               onClick={() => setFilter(f.key)}
               className="relative font-mono text-[11px] uppercase tracking-[0.08em] px-3 py-1.5 rounded-md flex items-center gap-1.5 transition-colors duration-200 flex-shrink-0"
               style={{
-                color: isActive ? 'var(--color-cyan)' : 'var(--color-text-dim)',
-                background: isActive ? 'rgba(0,255,170,0.08)' : 'transparent',
+                color: isActive ? 'var(--color-blue)' : 'var(--color-text-dim)',
+                background: isActive ? 'rgba(0,170,255,0.08)' : 'transparent',
                 border: isActive
-                  ? '1px solid rgba(0,255,170,0.2)'
+                  ? '1px solid rgba(0,170,255,0.2)'
                   : '1px solid transparent',
               }}
               whileHover={{
                 backgroundColor: isActive
-                  ? 'rgba(0,255,170,0.12)'
+                  ? 'rgba(0,170,255,0.12)'
                   : 'rgba(255,255,255,0.03)',
               }}
               whileTap={{ scale: 0.97 }}
@@ -602,7 +602,7 @@ export default function MissionControl() {
                 <span
                   className="ml-0.5 text-[10px]"
                   style={{
-                    color: isActive ? 'var(--color-cyan)' : 'var(--color-text-dim)',
+                    color: isActive ? 'var(--color-blue)' : 'var(--color-text-dim)',
                     opacity: 0.6,
                   }}
                 >

@@ -248,8 +248,8 @@ function AssertionDetail({
         <div className="bg-abyss border border-border rounded-lg p-4">
           {/* Header */}
           <div className="flex items-center gap-2 mb-3">
-            <Terminal className="w-3.5 h-3.5 text-cyan" />
-            <span className="font-mono text-[11px] text-cyan tracking-wider uppercase">
+            <Terminal className="w-3.5 h-3.5 text-blue" />
+            <span className="font-mono text-[11px] text-blue tracking-wider uppercase">
               Verification Assertions
             </span>
           </div>
@@ -298,7 +298,7 @@ function AssertionDetail({
               <span className="font-mono text-[10px] text-text-dim tracking-wider">
                 BOUND TO MISSION
               </span>
-              <span className="font-mono text-[11px] text-cyan">
+              <span className="font-mono text-[11px] text-blue">
                 {requirement.missionId}
               </span>
             </div>
@@ -356,7 +356,7 @@ export default function RequirementMatrix() {
     <div className="section-container">
       {/* ---- Section Header ---- */}
       <div className="flex items-center gap-3 mb-3">
-        <Shield className="w-5 h-5 text-cyan" />
+        <Shield className="w-5 h-5 text-blue" />
         <h2 className="font-display text-2xl sm:text-3xl font-bold text-text tracking-tight">
           SRD REQUIREMENT MATRIX
         </h2>
@@ -468,8 +468,8 @@ export default function RequirementMatrix() {
       <div className="card overflow-hidden">
         {/* Table header bar */}
         <div className="bg-deep/80 border-b border-border px-6 py-3 flex items-center gap-2">
-          <FileCheck className="w-4 h-4 text-cyan" />
-          <span className="font-mono text-[11px] text-cyan tracking-wider uppercase">
+          <FileCheck className="w-4 h-4 text-blue" />
+          <span className="font-mono text-[11px] text-blue tracking-wider uppercase">
             Requirement Traceability Matrix
           </span>
           <span className="font-mono text-[10px] text-text-dim ml-auto">
@@ -516,7 +516,7 @@ export default function RequirementMatrix() {
                 <div
                   className={`group cursor-pointer transition-colors duration-200 border-b border-border/30 ${
                     isSelected
-                      ? 'bg-cyan/[0.04]'
+                      ? 'bg-blue/[0.04]'
                       : 'hover:bg-elevated/40'
                   }`}
                   onClick={() => setSelectedId(isSelected ? null : req.id)}
@@ -527,7 +527,7 @@ export default function RequirementMatrix() {
                     <div className="flex items-center gap-2">
                       <ChevronRight
                         className={`w-3 h-3 text-text-dim transition-transform duration-200 ${
-                          isSelected ? 'rotate-90 text-cyan' : ''
+                          isSelected ? 'rotate-90 text-blue' : ''
                         }`}
                       />
                       <span className="font-mono text-xs text-text font-medium tracking-wide">
@@ -557,7 +557,7 @@ export default function RequirementMatrix() {
                     <CoverageBar coverage={req.coverage} />
 
                     {/* Mission */}
-                    <span className="font-mono text-xs text-cyan/70">
+                    <span className="font-mono text-xs text-blue/70">
                       {req.missionId || '--'}
                     </span>
                   </div>
@@ -568,7 +568,7 @@ export default function RequirementMatrix() {
                       <div className="flex items-center gap-2">
                         <ChevronRight
                           className={`w-3 h-3 text-text-dim transition-transform duration-200 shrink-0 ${
-                            isSelected ? 'rotate-90 text-cyan' : ''
+                            isSelected ? 'rotate-90 text-blue' : ''
                           }`}
                         />
                         <span className="font-mono text-xs text-text font-medium tracking-wide">

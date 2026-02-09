@@ -7,7 +7,7 @@ import { missions } from '../lib/mock-data';
 // ============================================================
 
 const AGENT_COLORS: Record<string, string> = {
-  backend: '#00ffaa',
+  backend: '#00aaff',
   frontend: '#8b5cf6',
   database: '#fbbf24',
   testing: '#34d399',
@@ -138,14 +138,14 @@ function DagEdge({
     status === 'completed'
       ? '#34d399'
       : status === 'active'
-        ? '#00ffaa'
+        ? '#00aaff'
         : '#555577';
 
   const glowColor =
     status === 'completed'
       ? '#34d39960'
       : status === 'active'
-        ? '#00ffaa60'
+        ? '#00aaff60'
         : 'transparent';
 
   const opacity = dimmed ? 0.12 : highlighted ? 1 : 0.7;
@@ -287,7 +287,7 @@ function DagNode({
   const borderColor = isCompleted
     ? '#34d399'
     : isRunning
-      ? '#00ffaa'
+      ? '#00aaff'
       : isFailed
         ? '#f43f5e'
         : '#252550';
@@ -323,7 +323,7 @@ function DagNode({
           height={NODE_H + 8}
           rx={14}
           fill="none"
-          stroke={isRunning ? '#00ffaa' : borderColor}
+          stroke={isRunning ? '#00aaff' : borderColor}
           strokeWidth={1}
           opacity={0.3}
           style={{ filter: `blur(6px)` }}
@@ -361,7 +361,7 @@ function DagNode({
           height={NODE_H}
           rx={10}
           fill="none"
-          stroke="#00ffaa"
+          stroke="#00aaff"
           strokeWidth={2}
         >
           <animate
@@ -382,7 +382,7 @@ function DagNode({
           isCompleted
             ? '#34d399'
             : isRunning
-              ? '#00ffaa'
+              ? '#00aaff'
               : isFailed
                 ? '#f43f5e'
                 : '#555577'
@@ -418,7 +418,7 @@ function DagNode({
           isCompleted
             ? '#34d399'
             : isRunning
-              ? '#00ffaa'
+              ? '#00aaff'
               : isFailed
                 ? '#f43f5e'
                 : '#555577'
@@ -496,7 +496,7 @@ function DagNode({
             width={(NODE_W - 20) * (mission.progress / 100)}
             height={5}
             rx={2.5}
-            fill="#00ffaa"
+            fill="#00aaff"
           >
             <animate
               attributeName="opacity"
@@ -509,7 +509,7 @@ function DagNode({
           <text
             x={x + NODE_W - 12}
             y={y + NODE_H - 18}
-            fill="#00ffaa"
+            fill="#00aaff"
             fontSize="9"
             fontFamily="'JetBrains Mono', monospace"
             fontWeight="500"
@@ -638,8 +638,8 @@ export default function DagVisualizer() {
       >
         <div className="flex items-center gap-3 mb-3">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border-glow to-transparent" />
-          <span className="badge bg-cyan/10 text-cyan border border-cyan/20">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse" />
+          <span className="badge bg-blue/10 text-blue border border-blue/20">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue animate-pulse" />
             EXECUTION PLAN
           </span>
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border-glow to-transparent" />
@@ -647,7 +647,7 @@ export default function DagVisualizer() {
 
         <h2 className="font-display text-3xl md:text-4xl font-bold text-center text-text">
           MISSION DEPENDENCY{' '}
-          <span className="gradient-text-cyan">GRAPH</span>
+          <span className="gradient-text-blue">GRAPH</span>
         </h2>
         <p className="text-text-secondary text-center mt-3 max-w-2xl mx-auto font-body text-sm leading-relaxed">
           Conflict-free DAG ordering ensures zero file ownership overlaps.
@@ -667,7 +667,7 @@ export default function DagVisualizer() {
         {/* Top scanline effect */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
           <div
-            className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-cyan/30 to-transparent"
+            className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-blue/30 to-transparent"
             style={{
               animation: 'scanMove 6s ease-in-out infinite',
             }}
@@ -683,7 +683,7 @@ export default function DagVisualizer() {
         {/* Batch labels header bar */}
         <div className="relative z-10 flex items-center justify-between px-6 pt-5 pb-2">
           <div className="flex items-center gap-2">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-cyan">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-blue">
               <path
                 d="M2 8h3l2-4 2 8 2-4h3"
                 stroke="currentColor"
@@ -729,7 +729,7 @@ export default function DagVisualizer() {
               {/* Glow filters */}
               <filter id="dag-glow-cyan" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur stdDeviation="4" result="blur" />
-                <feFlood floodColor="#00ffaa" floodOpacity="0.3" result="color" />
+                <feFlood floodColor="#00aaff" floodOpacity="0.3" result="color" />
                 <feComposite in="color" in2="blur" operator="in" result="glow" />
                 <feMerge>
                   <feMergeNode in="glow" />
@@ -758,9 +758,9 @@ export default function DagVisualizer() {
 
               {/* Radial gradient for batch columns */}
               <linearGradient id="batch-col-active" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#00ffaa" stopOpacity="0.04" />
-                <stop offset="50%" stopColor="#00ffaa" stopOpacity="0.02" />
-                <stop offset="100%" stopColor="#00ffaa" stopOpacity="0.04" />
+                <stop offset="0%" stopColor="#00aaff" stopOpacity="0.04" />
+                <stop offset="50%" stopColor="#00aaff" stopOpacity="0.02" />
+                <stop offset="100%" stopColor="#00aaff" stopOpacity="0.04" />
               </linearGradient>
               <linearGradient id="batch-col-done" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#34d399" stopOpacity="0.03" />
@@ -806,7 +806,7 @@ export default function DagVisualizer() {
                       allCompleted
                         ? '#34d39915'
                         : anyRunning
-                          ? '#00ffaa15'
+                          ? '#00aaff15'
                           : '#55557710'
                     }
                     strokeWidth={1}
@@ -828,7 +828,7 @@ export default function DagVisualizer() {
               const labelColor = allCompleted
                 ? '#34d399'
                 : anyRunning
-                  ? '#00ffaa'
+                  ? '#00aaff'
                   : '#555577';
 
               return (
@@ -932,7 +932,7 @@ export default function DagVisualizer() {
               <span className="font-mono text-[10px] text-text-dim tracking-wider">COMPLETED</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
+              <div className="w-2 h-2 rounded-full bg-blue animate-pulse" />
               <span className="font-mono text-[10px] text-text-dim tracking-wider">RUNNING</span>
             </div>
             <div className="flex items-center gap-2">
@@ -951,7 +951,7 @@ export default function DagVisualizer() {
             </span>
             <div className="h-3 w-px bg-border" />
             <span className="font-mono text-[10px] text-text-dim">
-              BATCH <span className="text-cyan">2</span>/4 ACTIVE
+              BATCH <span className="text-blue">2</span>/4 ACTIVE
             </span>
             <div className="h-3 w-px bg-border" />
             <span className="font-mono text-[10px] text-text-dim">

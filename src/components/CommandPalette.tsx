@@ -131,7 +131,7 @@ export default function CommandPalette() {
               style={{
                 background: 'var(--color-abyss)',
                 boxShadow:
-                  '0 0 60px rgba(0,255,170,0.1), 0 25px 80px rgba(0,0,0,0.6)',
+                  '0 0 60px rgba(0,170,255,0.1), 0 25px 80px rgba(0,0,0,0.6)',
               }}
             >
               {/* Search input */}
@@ -166,7 +166,7 @@ export default function CommandPalette() {
                       key={item.id}
                       className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors duration-100 ${
                         isSelected
-                          ? 'bg-cyan/[0.08] text-cyan'
+                          ? 'bg-blue/[0.08] text-blue'
                           : 'text-text-secondary hover:bg-white/[0.03] hover:text-text'
                       }`}
                       onClick={() => navigateTo(item.section)}
@@ -174,14 +174,14 @@ export default function CommandPalette() {
                     >
                       <Icon
                         size={16}
-                        className={isSelected ? 'text-cyan' : 'text-text-dim'}
+                        className={isSelected ? 'text-blue' : 'text-text-dim'}
                       />
                       <span className="flex-1 font-body text-sm">{item.label}</span>
                       {item.shortcut && (
                         <kbd
                           className={`px-1.5 py-0.5 rounded border text-[10px] font-mono ${
                             isSelected
-                              ? 'border-cyan/30 text-cyan bg-cyan/10'
+                              ? 'border-blue/30 text-blue bg-blue/10'
                               : 'border-border text-text-dim bg-surface'
                           }`}
                         >

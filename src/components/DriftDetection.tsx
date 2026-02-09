@@ -41,11 +41,11 @@ interface FileNode {
 
 const agentColors: Record<AgentType, { text: string; bg: string; border: string; dot: string; glow: string }> = {
   backend: {
-    text: 'text-cyan',
-    bg: 'bg-cyan/10',
-    border: 'border-cyan/30',
-    dot: 'bg-cyan',
-    glow: 'box-glow-cyan',
+    text: 'text-blue',
+    bg: 'bg-blue/10',
+    border: 'border-blue/30',
+    dot: 'bg-blue',
+    glow: 'box-glow-blue',
   },
   frontend: {
     text: 'text-purple',
@@ -79,7 +79,7 @@ const agentColors: Record<AgentType, { text: string; bg: string; border: string;
 
 const statusIcons: Record<FileStatus, { icon: string; color: string }> = {
   completed: { icon: '\u2713', color: 'text-emerald' },
-  running: { icon: '\u25CF', color: 'text-cyan' },
+  running: { icon: '\u25CF', color: 'text-blue' },
   pending: { icon: '\u25CB', color: 'text-text-dim' },
 };
 
@@ -251,7 +251,7 @@ function FileTreeItem({
         className={`
           group flex items-center gap-1.5 py-[3px] pl-${depth > 0 ? '0' : '0'} cursor-default
           hover:bg-elevated/50 rounded-sm transition-colors duration-150
-          ${node.status === 'running' ? 'bg-cyan/[0.03]' : ''}
+          ${node.status === 'running' ? 'bg-blue/[0.03]' : ''}
         `}
         style={{ paddingLeft: `${depth * 16}px` }}
         onClick={() => hasChildren && setExpanded(!expanded)}
@@ -616,7 +616,7 @@ export default function DriftDetection() {
         </div>
 
         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
-          <span className="gradient-text-cyan">DRIFT DETECTION</span>{' '}
+          <span className="gradient-text-blue">DRIFT DETECTION</span>{' '}
           <span className="text-text">&amp; FILE OWNERSHIP</span>
         </h2>
 
@@ -638,7 +638,7 @@ export default function DriftDetection() {
         >
           {/* Panel header */}
           <div className="flex items-center gap-3 px-5 py-4 border-b border-border/50">
-            <FolderTree className="w-4 h-4 text-cyan" />
+            <FolderTree className="w-4 h-4 text-blue" />
             <h3 className="font-display text-sm font-bold tracking-wide text-text uppercase">
               File Ownership Tree
             </h3>
@@ -649,7 +649,7 @@ export default function DriftDetection() {
               </span>
               <span className="flex items-center gap-1.5 text-[9px] font-mono text-text-dim">
                 <motion.span
-                  className="block w-1.5 h-1.5 rounded-full bg-cyan"
+                  className="block w-1.5 h-1.5 rounded-full bg-blue"
                   animate={{ opacity: [1, 0.3, 1] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 />

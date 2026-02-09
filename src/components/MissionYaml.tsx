@@ -17,7 +17,7 @@ import { missions } from '../lib/mock-data';
 // Agent colour mapping
 // ---------------------------------------------------------------------------
 const agentColor: Record<string, { tw: string; glow: string; bg: string; border: string }> = {
-  backend:  { tw: 'text-cyan',    glow: 'bg-cyan-glow',    bg: 'bg-cyan/10',    border: 'border-cyan/30' },
+  backend:  { tw: 'text-blue',    glow: 'bg-blue-glow',    bg: 'bg-blue/10',    border: 'border-blue/30' },
   frontend: { tw: 'text-purple',  glow: 'bg-purple-glow',  bg: 'bg-purple/10',  border: 'border-purple/30' },
   database: { tw: 'text-amber',   glow: 'bg-amber-glow',   bg: 'bg-amber/10',   border: 'border-amber/30' },
   testing:  { tw: 'text-emerald', glow: 'bg-emerald-glow', bg: 'bg-emerald/10', border: 'border-emerald/30' },
@@ -90,7 +90,7 @@ const annotations: Annotation[] = [
   {
     field: 'files.own',
     label: 'Write scope \u2014 enforced by validate-plan',
-    color: 'cyan',
+    color: 'blue',
     icon: <Shield size={12} />,
   },
   {
@@ -133,7 +133,7 @@ function renderYamlLine(line: YamlLine) {
         <span>
           <span className="text-text-dim">{indentStr}</span>
           <span className="text-purple font-bold">- </span>
-          <span className="text-cyan">{kvMatch[1]}</span>
+          <span className="text-blue">{kvMatch[1]}</span>
           <span className="text-text-dim">: </span>
           <span className={isNum ? 'text-amber' : 'text-emerald'}>{kvMatch[2]}</span>
         </span>
@@ -151,7 +151,7 @@ function renderYamlLine(line: YamlLine) {
   if (kind === 'key-string' || kind === 'key-number' || kind === 'key-array') {
     const colonIdx = text.indexOf(':');
     if (colonIdx === -1) {
-      return <span className="text-cyan">{indentStr}{text}</span>;
+      return <span className="text-blue">{indentStr}{text}</span>;
     }
     const key = text.slice(0, colonIdx);
     const value = text.slice(colonIdx + 1).trim();
@@ -159,7 +159,7 @@ function renderYamlLine(line: YamlLine) {
     return (
       <span>
         <span className="text-text-dim">{indentStr}</span>
-        <span className="text-cyan">{key}</span>
+        <span className="text-blue">{key}</span>
         <span className="text-text-dim">:</span>
         {value ? (
           <>
@@ -225,7 +225,7 @@ export default function MissionYaml() {
     <section className="py-32 relative">
       {/* Background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-glow/20 rounded-full blur-[150px]" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-blue-glow/20 rounded-full blur-[150px]" />
         <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-purple-glow/15 rounded-full blur-[120px]" />
       </div>
 
@@ -238,18 +238,18 @@ export default function MissionYaml() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="badge bg-cyan/10 text-cyan border border-cyan/20 mb-6 mx-auto w-fit">
+          <div className="badge bg-blue/10 text-blue border border-blue/20 mb-6 mx-auto w-fit">
             <FileCode size={14} />
             MISSION FORMAT
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-text mb-4 tracking-tight">
             STRUCTURED{' '}
-            <span className="gradient-text-cyan">MISSION FORMAT</span>
+            <span className="gradient-text-blue">MISSION FORMAT</span>
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto text-lg leading-relaxed">
             YAML with machine-verifiable acceptance criteria replaces prose markdown.
             Every field is validated by{' '}
-            <span className="text-cyan font-mono text-sm">validate-plan</span> before
+            <span className="text-blue font-mono text-sm">validate-plan</span> before
             execution begins.
           </p>
         </motion.div>
@@ -483,7 +483,7 @@ export default function MissionYaml() {
             <p className="mt-4 text-xs text-text-dim leading-relaxed">
               Every acceptance criterion is an executable shell command
               with a deterministic expected result.{' '}
-              <span className="text-cyan">validate-plan</span> confirms
+              <span className="text-blue">validate-plan</span> confirms
               syntactic validity before execution.
             </p>
           </div>

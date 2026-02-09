@@ -34,8 +34,8 @@ const STATS: {
     label: 'Missions',
     value: 12,
     icon: Crosshair,
-    color: 'text-cyan',
-    glow: 'box-glow-cyan',
+    color: 'text-blue',
+    glow: 'box-glow-blue',
   },
   {
     label: 'Agents',
@@ -338,19 +338,19 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
     },
   },
 };
 
 const childVariants = {
-  hidden: { opacity: 0, y: 30, filter: 'blur(6px)' },
+  hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
   visible: {
     opacity: 1,
     y: 0,
     filter: 'blur(0px)',
-    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
   },
 };
 
@@ -478,8 +478,8 @@ export default function Hero() {
                 <span className={`font-display text-3xl font-bold ${stat.color}`}>
                   <AnimatedCounter
                     target={stat.value}
-                    duration={2}
-                    delay={1.2 + i * 0.15}
+                    duration={1}
+                    delay={0.6 + i * 0.08}
                   />
                 </span>
                 <span className="font-mono text-text-dim text-[11px] tracking-wider uppercase">
@@ -496,7 +496,7 @@ export default function Hero() {
         className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3.5, duration: 1 }}
+        transition={{ delay: 1.5, duration: 0.6 }}
       >
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface/50 backdrop-blur-sm border border-border/40">
           <Command className="w-3 h-3 text-text-dim" />
@@ -517,7 +517,7 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3, duration: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
       >
         <span className="font-mono text-text-dim text-[10px] tracking-[0.3em] uppercase mb-1">
           Scroll

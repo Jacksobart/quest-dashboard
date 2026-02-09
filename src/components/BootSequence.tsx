@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Boot sequence data
 // ---------------------------------------------------------------------------
 const BOOT_LINES = [
-  { text: 'QUEST SYSTEM v1.0.0', delay: 0, color: 'text-cyan', bold: true },
+  { text: 'QUEST SYSTEM v1.0.0', delay: 0, color: 'text-blue', bold: true },
   { text: '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', delay: 40, color: 'text-border-glow' },
   { text: '', delay: 60 },
   { text: '[BOOT] Initializing quantum verification matrix...', delay: 80, color: 'text-text-dim' },
@@ -19,7 +19,7 @@ const BOOT_LINES = [
   { text: '[  OK  ] 22 acceptance criteria loaded', delay: 840, color: 'text-emerald' },
   { text: '[  OK  ] 5 validation gates armed', delay: 920, color: 'text-emerald' },
   { text: '[BOOT] Spawning agent pool...', delay: 1000, color: 'text-text-dim' },
-  { text: '  ├─ backend    [READY]', delay: 1080, color: 'text-cyan' },
+  { text: '  ├─ backend    [READY]', delay: 1080, color: 'text-blue' },
   { text: '  ├─ frontend   [READY]', delay: 1140, color: 'text-purple' },
   { text: '  ├─ database   [READY]', delay: 1200, color: 'text-amber' },
   { text: '  └─ testing    [READY]', delay: 1260, color: 'text-emerald' },
@@ -29,7 +29,7 @@ const BOOT_LINES = [
   { text: '[  OK  ] Zero file ownership overlaps', delay: 1520, color: 'text-emerald' },
   { text: '[  OK  ] Drift detection armed', delay: 1580, color: 'text-emerald' },
   { text: '', delay: 1620 },
-  { text: '▸ VERIFICATION IS THE MOAT', delay: 1680, color: 'text-cyan', bold: true },
+  { text: '▸ VERIFICATION IS THE MOAT', delay: 1680, color: 'text-blue', bold: true },
   { text: '', delay: 1740 },
   { text: '[SYSTEM] All systems nominal. Launching dashboard...', delay: 1800, color: 'text-emerald', bold: true },
 ];
@@ -137,7 +137,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
           <motion.div
             className="absolute left-0 right-0 h-[2px] pointer-events-none"
             style={{
-              background: 'linear-gradient(90deg, transparent 0%, rgba(0,255,170,0.15) 50%, transparent 100%)',
+              background: 'linear-gradient(90deg, transparent 0%, rgba(0,170,255,0.15) 50%, transparent 100%)',
               zIndex: 11,
             }}
             animate={{ top: ['-5%', '105%'] }}
@@ -164,7 +164,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4 }}
                   style={{
-                    textShadow: '0 0 20px rgba(0,255,170,0.6), 0 0 40px rgba(0,255,170,0.3)',
+                    textShadow: '0 0 20px rgba(0,170,255,0.6), 0 0 40px rgba(0,170,255,0.3)',
                   }}
                 >
                   {ASCII_LOGO}
@@ -195,7 +195,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
                 })}
                 {/* Blinking cursor */}
                 <span
-                  className="inline-block w-2 h-4 bg-cyan ml-1"
+                  className="inline-block w-2 h-4 bg-blue ml-1"
                   style={{ animation: 'boot-blink 1s step-end infinite' }}
                 />
               </div>
@@ -212,8 +212,8 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
                   <motion.div
                     className="h-full rounded-full"
                     style={{
-                      background: 'linear-gradient(90deg, var(--color-cyan), var(--color-purple))',
-                      boxShadow: '0 0 10px var(--color-cyan-glow)',
+                      background: 'linear-gradient(90deg, var(--color-blue), var(--color-purple))',
+                      boxShadow: '0 0 10px var(--color-blue-glow)',
                     }}
                     initial={{ width: '0%' }}
                     animate={{ width: `${progressPct}%` }}

@@ -64,15 +64,15 @@ const statusConfig: Record<
     lineClass: 'bg-emerald/40',
   },
   running: {
-    border: 'border-cyan/50',
-    bg: 'bg-cyan/[0.03]',
-    glow: 'box-glow-cyan',
-    text: 'text-cyan',
+    border: 'border-blue/50',
+    bg: 'bg-blue/[0.03]',
+    glow: 'box-glow-blue',
+    text: 'text-blue',
     label: 'RUNNING',
-    badgeBg: 'bg-cyan/10',
-    badgeBorder: 'border-cyan/30',
-    iconColor: 'text-cyan',
-    lineClass: 'bg-cyan/40',
+    badgeBg: 'bg-blue/10',
+    badgeBorder: 'border-blue/30',
+    iconColor: 'text-blue',
+    lineClass: 'bg-blue/40',
   },
   pending: {
     border: 'border-border',
@@ -115,7 +115,7 @@ function CheckStatusIcon({ status }: { status: CheckStatus }) {
           transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
           className="flex-shrink-0"
         >
-          <Loader2 className="w-4 h-4 text-cyan" />
+          <Loader2 className="w-4 h-4 text-blue" />
         </motion.div>
       );
     case 'pending':
@@ -149,7 +149,7 @@ function GateStatusIcon({ status }: { status: CheckStatus }) {
             <Loader2 className={`w-6 h-6 ${config.iconColor}`} />
           </motion.div>
           <motion.div
-            className="absolute -inset-1 rounded-full border border-cyan/30"
+            className="absolute -inset-1 rounded-full border border-blue/30"
             animate={{ opacity: [0.2, 0.6, 0.2], scale: [0.95, 1.08, 0.95] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           />
@@ -189,7 +189,7 @@ function TimelineConnector({ fromStatus, toStatus }: { fromStatus: CheckStatus; 
           <motion.div
             className="absolute inset-0 rounded-full"
             style={{
-              background: 'linear-gradient(180deg, var(--color-emerald), var(--color-cyan))',
+              background: 'linear-gradient(180deg, var(--color-emerald), var(--color-blue))',
             }}
             animate={{ opacity: [0.3, 0.7, 0.3] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
@@ -198,7 +198,7 @@ function TimelineConnector({ fromStatus, toStatus }: { fromStatus: CheckStatus; 
           {[0, 1].map((i) => (
             <motion.div
               key={i}
-              className="absolute left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-cyan"
+              className="absolute left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-blue"
               style={{ filter: 'blur(0.5px)' }}
               initial={{ top: '-6px', opacity: 0 }}
               animate={{
@@ -241,7 +241,7 @@ function TimelineConnector({ fromStatus, toStatus }: { fromStatus: CheckStatus; 
           className="absolute inset-0"
           style={{
             backgroundImage:
-              'repeating-linear-gradient(180deg, var(--color-cyan-dim) 0px, var(--color-cyan-dim) 3px, transparent 3px, transparent 7px)',
+              'repeating-linear-gradient(180deg, var(--color-blue-dim) 0px, var(--color-blue-dim) 3px, transparent 3px, transparent 7px)',
             opacity: 0.3,
           }}
         />
@@ -261,7 +261,7 @@ function TimelineNode({ status }: { status: CheckStatus }) {
       <div
         className={`w-4 h-4 rounded-full border-2 flex items-center justify-center
           ${status === 'pass' ? 'border-emerald bg-emerald/20' : ''}
-          ${status === 'running' ? 'border-cyan bg-cyan/20' : ''}
+          ${status === 'running' ? 'border-blue bg-blue/20' : ''}
           ${status === 'pending' ? 'border-text-dim/40 bg-deep' : ''}
           ${status === 'fail' ? 'border-red bg-red/20' : ''}
         `}
@@ -269,7 +269,7 @@ function TimelineNode({ status }: { status: CheckStatus }) {
         <div
           className={`w-1.5 h-1.5 rounded-full
             ${status === 'pass' ? 'bg-emerald' : ''}
-            ${status === 'running' ? 'bg-cyan' : ''}
+            ${status === 'running' ? 'bg-blue' : ''}
             ${status === 'pending' ? 'bg-text-dim/40' : ''}
             ${status === 'fail' ? 'bg-red' : ''}
           `}
@@ -279,7 +279,7 @@ function TimelineNode({ status }: { status: CheckStatus }) {
       {/* Pulse ring for running */}
       {status === 'running' && (
         <motion.div
-          className="absolute inset-0 rounded-full border border-cyan/40"
+          className="absolute inset-0 rounded-full border border-blue/40"
           animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
         />
@@ -304,7 +304,7 @@ function CheckRow({ check, index }: { check: Check; index: number }) {
   return (
     <motion.div
       className={`flex items-start gap-3 py-2 px-3 rounded-lg transition-colors
-        ${check.status === 'running' ? 'bg-cyan/[0.04]' : ''}
+        ${check.status === 'running' ? 'bg-blue/[0.04]' : ''}
         ${check.status === 'pass' ? 'bg-emerald/[0.02]' : ''}
         ${check.status === 'fail' ? 'bg-red/[0.04]' : ''}
       `}
@@ -322,7 +322,7 @@ function CheckRow({ check, index }: { check: Check; index: number }) {
               check.status === 'pass'
                 ? 'text-text'
                 : check.status === 'running'
-                  ? 'text-cyan'
+                  ? 'text-blue'
                   : check.status === 'fail'
                     ? 'text-red'
                     : 'text-text-dim'
@@ -340,7 +340,7 @@ function CheckRow({ check, index }: { check: Check; index: number }) {
         {check.details && (
           <p
             className={`text-xs mt-0.5 leading-relaxed ${
-              check.status === 'running' ? 'text-cyan/60' : 'text-text-secondary'
+              check.status === 'running' ? 'text-blue/60' : 'text-text-secondary'
             }`}
           >
             {check.details}
@@ -395,7 +395,7 @@ function GateCard({
       {/* Pulsing border for running gate */}
       {gate.status === 'running' && (
         <motion.div
-          className="absolute -inset-px rounded-xl border border-cyan/40 pointer-events-none"
+          className="absolute -inset-px rounded-xl border border-blue/40 pointer-events-none"
           animate={{ opacity: [0.3, 0.8, 0.3] }}
           transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
         />
@@ -407,7 +407,7 @@ function GateCard({
           gate.status === 'pass'
             ? 'bg-gradient-to-r from-transparent via-emerald/40 to-transparent'
             : gate.status === 'running'
-              ? 'bg-gradient-to-r from-transparent via-cyan/50 to-transparent'
+              ? 'bg-gradient-to-r from-transparent via-blue/50 to-transparent'
               : gate.status === 'fail'
                 ? 'bg-gradient-to-r from-transparent via-red/40 to-transparent'
                 : 'bg-gradient-to-r from-transparent via-border-glow to-transparent'
@@ -452,7 +452,7 @@ function GateCard({
                 gate.status === 'pass'
                   ? 'bg-emerald'
                   : gate.status === 'running'
-                    ? 'bg-cyan'
+                    ? 'bg-blue'
                     : gate.status === 'fail'
                       ? 'bg-red'
                       : 'bg-text-dim/30'
@@ -552,7 +552,7 @@ export default function VerificationGates() {
 
         <h2 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
           <span className="text-text">VERIFICATION</span>{' '}
-          <span className="gradient-text-cyan">ARCHITECTURE</span>
+          <span className="gradient-text-blue">ARCHITECTURE</span>
         </h2>
 
         <p className="text-text-secondary max-w-2xl mx-auto text-base leading-relaxed">
@@ -588,18 +588,18 @@ export default function VerificationGates() {
 
         {/* Running indicator */}
         {runningChecks > 0 && (
-          <div className="flex items-center gap-3 px-5 py-3 rounded-xl border border-cyan/20 bg-cyan/[0.03]">
+          <div className="flex items-center gap-3 px-5 py-3 rounded-xl border border-blue/20 bg-blue/[0.03]">
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
             >
-              <Loader2 className="w-5 h-5 text-cyan" />
+              <Loader2 className="w-5 h-5 text-blue" />
             </motion.div>
             <div>
-              <span className="font-mono text-lg font-bold text-cyan">
+              <span className="font-mono text-lg font-bold text-blue">
                 {runningChecks}
               </span>
-              <p className="text-cyan/60 text-xs font-mono tracking-wider uppercase">
+              <p className="text-blue/60 text-xs font-mono tracking-wider uppercase">
                 running
               </p>
             </div>
@@ -727,7 +727,7 @@ export default function VerificationGates() {
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
           >
-            <Loader2 className="w-3.5 h-3.5 text-cyan" />
+            <Loader2 className="w-3.5 h-3.5 text-blue" />
           </motion.div>
           <span className="text-text-secondary">Running</span>
         </div>
